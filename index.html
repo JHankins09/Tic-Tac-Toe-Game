@@ -13,5 +13,37 @@
     </head>
     <body>
       <h1>Browser Template</h1>
+
+        <h2>API Sign-up Feature</h2>
+        <form id="sign-up">
+          <h3 id="sign-up-message"></h3>
+          <input name="credentials[email]" type="text" placeholder="an@example.email">
+          <input name="credentials[password]" type="password" placeholder="an example password">
+          <input name="credentials[password_confirmation]" type="password" placeholder="an example password">
+          <button type="submit">Sign up</button>
+        </form>
+
+        <h2>API Sign-in Feature</h2>
+        <form id="sign-in">
+          <h3 id="sign-in-message"></h3>
+          <input name="credentials[email]" type="text" placeholder="an@example.email">
+          <input name="credentials[password]" type="password" placeholder="an example password">
+          <button type="submit">Sign in</button>
+        </form>
+
+        <h2>API Change Password Feature</h2>
+        <form id="change-pw">
+          <h3 id="change-pw-message"></h3>
+          <input name="passwords[old]" type="password" placeholder="old password">
+          <input name="passwords[new]" type="password" placeholder="new password">
+          <button type="submit">Change Password</button>
+        </form>
+
+        <h2>API Sign-out Feature</h2>
+        <form id="sign-out">
+          <h3 id="sign-out-message"></h3>
+          <button type="submit">Sign Out</button>
+        </form>
+
     </body>
 </html>
