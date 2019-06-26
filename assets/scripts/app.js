@@ -19,6 +19,7 @@ $(() => {
   $('#sign-out').on('submit', userEvents.onSignOut)
 
   // Game instance listeners
+  $('#start-game').on('submit', gameEvents.onCreateGame)
   $('#get-games').on('submit', gameEvents.onGetGames)
 
   // your JS code goes here

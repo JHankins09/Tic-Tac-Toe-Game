@@ -3,6 +3,17 @@
 const config = require('./../config.js')
 const store = require('./../store.js')
 
+const createGame = formData => {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    data: formData,
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const getGames = formData => {
   return $.ajax({
     url: config.apiUrl + '/games',
@@ -56,5 +67,6 @@ module.exports = {
   signIn,
   changePassword,
   signOut,
-  getGames
+  getGames,
+  createGame
 }
