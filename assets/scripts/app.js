@@ -7,6 +7,7 @@
 // require('./example')
 
 const userEvents = require('./user/events')
+const gameEvents = require('./gameengine/events')
 
 $(() => {
   // your JS code goes here
@@ -14,5 +15,9 @@ $(() => {
   $('#sign-in').on('submit', userEvents.onSignIn)
   $('#change-pw').on('submit', userEvents.onChangePassword)
   $('#sign-out').on('submit', userEvents.onSignOut)
+
+  // your JS code goes here
+  // $('.col-4').on('click', gameEngineEvents.onClick)
+  $('.col-4').on('click', gameEvents.onClick)
 })
 // $('#index-books').on('click', bookEvents.onGetBooks)
