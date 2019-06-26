@@ -13,6 +13,13 @@ const onClick = event => {
   console.log(event)
 }
 
+const onCreateGame = event => {
+  event.preventDefault()
+  api.createGame()
+    .then(ui.createGameSuccessful)
+    .catch(ui.createGameFailure)
+}
+
 const onGetGames = event => {
   event.preventDefault()
   api.getGames()
@@ -22,5 +29,6 @@ const onGetGames = event => {
 
 module.exports = {
   onClick,
-  onGetGames
+  onGetGames,
+  onCreateGame
 }
