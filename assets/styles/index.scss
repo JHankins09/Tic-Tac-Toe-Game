@@ -1,1 +1,30 @@
 @import '~bootstrap/scss/bootstrap';
+
+.game-board {
+  height: 600px;
+  width: 600px;
+}
+
+.hide {
+  display: none;
+}
+
+.col-4 {
+  height: 200px;
+}
+
+.top {
+  border-bottom: 1px #000000 solid;
+}
+
+.right {
+  border-left:  1px #000000 solid;
+}
+
+.left {
+  border-right:  1px #000000 solid;
+}
+
+.bot {
+  border-top:  1px #000000 solid;
+}

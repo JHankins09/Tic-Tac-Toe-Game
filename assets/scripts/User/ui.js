@@ -32,6 +32,8 @@ const signInSuccessful = responseData => {
   $('#sign-in-message').removeClass('failure')
   $('#sign-in-message').addClass('succes')
   store.user = responseData.user
+  $('.logged-in').removeClass('hide')
+  $('.sign-in-screen').addClass('hide')
   messageReset()
 }
 
