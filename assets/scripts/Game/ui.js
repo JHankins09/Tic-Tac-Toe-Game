@@ -11,6 +11,10 @@ const messageReset = function () {
   $('#start-game-message').delay(2000).fadeOut(200)
 }
 
+const placeToken = responseData => {
+  $('#event.target.id').append('X')
+}
+
 const createGameSuccessful = responseData => {
   $('#start-game-message').show()
   $('#start-game-message').text(`Let's boogie!!!!`)
@@ -18,12 +22,13 @@ const createGameSuccessful = responseData => {
   $('#sign-up-message').addClass('success')
   $('.game-active').removeClass('hide')
   $('.game-inactive').addClass('hide')
+  store.turn = 'X'
   messageReset()
 }
 
 const createGameFailure = responseData => {
   $('#start-game-message').show()
-  $('#start-game-message').text('Whoops... something went arri')
+  $('#start-game-message').text('Whoops... something went wrong')
   $('#start-game-message').removeClass('success')
   $('#start-game-message').addClass('failure')
   messageReset()
@@ -31,5 +36,6 @@ const createGameFailure = responseData => {
 
 module.exports = {
   createGameSuccessful,
-  createGameFailure
+  createGameFailure,
+  placeToken
 }
