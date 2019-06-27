@@ -15,6 +15,37 @@ const createGame = formData => {
   })
 }
 
+// API call to update game
+const updateGame = () => {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.session.game.id,
+    data: {
+      'game': {
+        'cell': {
+          'index': store.current.index,
+          'value': store.current.value
+        },
+        'over': false
+      }
+    },
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+// API call to get a gameEvents
+const getGame = (id) => {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 // In Process
 const getGames = formData => {
   return $.ajax({
@@ -29,5 +60,7 @@ const getGames = formData => {
 
 module.exports = {
   getGames,
-  createGame
+  createGame,
+  updateGame,
+  getGame
 }
