@@ -4,26 +4,17 @@
 // const api = require('./api')
 const ui = require('./ui')
 const api = require('./api')
-const store = require('./../store.js')
 
-// const makeMove = event => {
-//   !$('#box11').class ? ui.signUpSuccessful : .catch(ui.signUpFailure)
-// }
-
+// action to execute when a game space is selected
 const onPlaceToken = event => {
   if ((event.target).innerHTML) {
-    $('#game-board-alerts').show()
-    $('#game-board-alerts').text(`This space is already taken!`)
-    $('#game-board-alerts').delay(2000).fadeOut(200)
-  } else if (store.turn === 'X') {
-    $(event.target).append('X').addClass('Taken')
-    store.turn = 'O'
-  } else if (store.turn === 'O') {
-    $(event.target).append('O').addClass('Taken')
-    store.turn = 'X'
+    ui.checkAvailableSpace()
+  } else {
+    ui.placeToken()
   }
 }
 
+// action to execute when 'start game' is selected
 const onCreateGame = event => {
   event.preventDefault()
   api.createGame()
@@ -31,6 +22,7 @@ const onCreateGame = event => {
     .catch(ui.createGameFailure)
 }
 
+// in process.
 const onGetGames = event => {
   event.preventDefault()
   api.getGames()
