@@ -4,18 +4,23 @@
 // const api = require('./api')
 const ui = require('./ui')
 const api = require('./api')
+const store = require('./../store.js')
 
 // const store = require('./../store.js')
 
 // action to execute when a game space is selected
 const onPlaceToken = event => {
-  if ((event.target).innerHTML) {
-    ui.checkAvailableSpace()
+  if (ui.isGameOver() === true) {
   } else {
-    ui.placeToken()
-    api.updateGame()
+    if ((event.target).innerHTML) {
+      ui.checkAvailableSpace()
+    } else if (store.gameStatus !== 'over') {
+      console.log(store.gameStatus)
+      console.log('Game status before token placed', ui.isGameOver())
+      ui.placeToken()
+      api.updateGame()
+    }
   }
-  // api.updateGame()
 }
 
 // action to execute when 'start game' is selected

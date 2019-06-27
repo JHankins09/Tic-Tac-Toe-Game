@@ -8,9 +8,28 @@ const messageReset = function () {
   $('#start-game-message').delay(2000).fadeOut(200)
 }
 
-const gameOver = () => {
-  console.log(store.session.game.cells)
+const isGameOver = () => {
+  const currentPlayer = store.turn
+  const tokenLocation = store.session.game.cells
+  console.log('Checking if ' + store.turn + ' has won')
+  console.log(tokenLocation)
+  if ((currentPlayer === tokenLocation[0] && currentPlayer === tokenLocation[1] && currentPlayer === tokenLocation[2]) ||
+  (currentPlayer === tokenLocation[3] && currentPlayer === tokenLocation[4] && currentPlayer === tokenLocation[5]) ||
+  (currentPlayer === tokenLocation[6] && currentPlayer === tokenLocation[7] && currentPlayer === tokenLocation[8]) ||
+  (currentPlayer === tokenLocation[0] && currentPlayer === tokenLocation[3] && currentPlayer === tokenLocation[6]) ||
+  (currentPlayer === tokenLocation[1] && currentPlayer === tokenLocation[4] && currentPlayer === tokenLocation[7]) ||
+  (currentPlayer === tokenLocation[2] && currentPlayer === tokenLocation[5] && currentPlayer === tokenLocation[8]) ||
+  (currentPlayer === tokenLocation[0] && currentPlayer === tokenLocation[4] && currentPlayer === tokenLocation[8]) ||
+  (currentPlayer === tokenLocation[2] && currentPlayer === tokenLocation[4] && currentPlayer === tokenLocation[8])) {
+    $('#game-board-alerts').show()
+    $('#game-board-alerts').text(`Congrats! Player ${store.turn} is the winner!`)
+    store.gameStatus = 'over'
+    return true
+  } else {
+    return false
+  }
 }
+
 // Execute the placement of game tokens
 const placeToken = responseData => {
   const gameSpace = ($(event.target).attr('data-cell-index'))
@@ -18,25 +37,32 @@ const placeToken = responseData => {
   const currentGame = {
     index: gameSpace,
     value: store.turn,
-    over: false // gameOver()
+    over: isGameOver()
   }
   store.current = currentGame
-  console.log('current', store.session)
+  // console.log('current', store.session)
   if (store.turn === 'X') {
     $(event.target).append('X').addClass('Taken')
+    if (isGameOver()) {
+    }
     store.turn = 'O'
   } else if (store.turn === 'O') {
     $(event.target).append('O').addClass('Taken')
+    if (isGameOver()) {
+      $('#game-board-alerts').show()
+      $('#game-board-alerts').text(`Congrats! Player ${store.turn} is the winner!`)
+    }
     store.turn = 'X'
   }
   return gameSpace
 }
-
 // Validate the selected game space hasn't already been selected.
 const checkAvailableSpace = responseData => {
-  $('#game-board-alerts').show()
-  $('#game-board-alerts').text(`This space is already taken!`)
-  $('#game-board-alerts').delay(2000).fadeOut(200)
+  if (store.gameStatus !== 'over') {
+    $('#game-board-alerts').show()
+    $('#game-board-alerts').text(`This space is already taken!`)
+    $('#game-board-alerts').delay(2000).fadeOut(200)
+  }
 }
 
 // Create a new game instance within Game API
@@ -48,7 +74,6 @@ const createGameSuccessful = responseData => {
   $('.game-active').removeClass('hide')
   $('.game-inactive').addClass('hide')
   store.session = responseData
-  console.log(responseData)
   store.turn = 'X'
   messageReset()
 }
@@ -66,5 +91,6 @@ module.exports = {
   createGameSuccessful,
   createGameFailure,
   checkAvailableSpace,
-  placeToken
+  placeToken,
+  isGameOver
 }

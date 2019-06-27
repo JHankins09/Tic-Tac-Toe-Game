@@ -8,6 +8,7 @@
 
 const userEvents = require('./user/events')
 const gameEvents = require('./game/events')
+const store = require('./store.js')
 
 $(() => {
   // Authentication listners
