@@ -8,11 +8,24 @@ const messageReset = function () {
   $('#start-game-message').delay(2000).fadeOut(200)
 }
 
+const moveCounter = []
+// Validate the selected space is empty.
+const checkAvailableSpace = responseData => {
+  if (store.gameStatus !== 'over') {
+    $('#game-board-alerts').show()
+    $('#game-board-alerts').text(`This space is already taken!`)
+    $('#game-board-alerts').delay(2000).fadeOut(200)
+  }
+}
+
+// validate if the game has ended
 const isGameOver = () => {
-  const currentPlayer = store.turn
   const tokenLocation = store.session.game.cells
+  const currentPlayer = store.turn
   console.log('Checking if ' + store.turn + ' has won')
   console.log(tokenLocation)
+
+  // look for a winner
   if ((currentPlayer === tokenLocation[0] && currentPlayer === tokenLocation[1] && currentPlayer === tokenLocation[2]) ||
   (currentPlayer === tokenLocation[3] && currentPlayer === tokenLocation[4] && currentPlayer === tokenLocation[5]) ||
   (currentPlayer === tokenLocation[6] && currentPlayer === tokenLocation[7] && currentPlayer === tokenLocation[8]) ||
@@ -20,14 +33,20 @@ const isGameOver = () => {
   (currentPlayer === tokenLocation[1] && currentPlayer === tokenLocation[4] && currentPlayer === tokenLocation[7]) ||
   (currentPlayer === tokenLocation[2] && currentPlayer === tokenLocation[5] && currentPlayer === tokenLocation[8]) ||
   (currentPlayer === tokenLocation[0] && currentPlayer === tokenLocation[4] && currentPlayer === tokenLocation[8]) ||
-  (currentPlayer === tokenLocation[2] && currentPlayer === tokenLocation[4] && currentPlayer === tokenLocation[8])) {
+  (currentPlayer === tokenLocation[2] && currentPlayer === tokenLocation[4] && currentPlayer === tokenLocation[6])) {
+    // display winner message and end game
     $('#game-board-alerts').show()
     $('#game-board-alerts').text(`Congrats! Player ${store.turn} is the winner!`)
     store.gameStatus = 'over'
     return true
-  } else {
-    return false
-  }
+    // look for all spaces to be occupied
+  } else if (moveCounter.length === 9) {
+    $('#game-board-alerts').show()
+    $('#game-board-alerts').text('This game is a draw!')
+    store.gameStatus = 'over'
+    return true
+  } else {}
+  return false
 }
 
 // Execute the placement of game tokens
@@ -43,11 +62,19 @@ const placeToken = responseData => {
   // console.log('current', store.session)
   if (store.turn === 'X') {
     $(event.target).append('X').addClass('Taken')
+    moveCounter.push('x')
+    store.moveCounter = store.moveCounter + 1
+    console.log(store.moveTracker + ' moves made')
+    $('#player-tracker').text('')
+    $('#player-tracker').text('Player ' + store.turn + 's turn!')
     if (isGameOver()) {
     }
     store.turn = 'O'
   } else if (store.turn === 'O') {
     $(event.target).append('O').addClass('Taken')
+    moveCounter.push('o')
+    store.moveCounter = store.moveCounter + 1
+    console.log(store.moveTracker + ' moves made')
     if (isGameOver()) {
       $('#game-board-alerts').show()
       $('#game-board-alerts').text(`Congrats! Player ${store.turn} is the winner!`)
@@ -55,14 +82,6 @@ const placeToken = responseData => {
     store.turn = 'X'
   }
   return gameSpace
-}
-// Validate the selected game space hasn't already been selected.
-const checkAvailableSpace = responseData => {
-  if (store.gameStatus !== 'over') {
-    $('#game-board-alerts').show()
-    $('#game-board-alerts').text(`This space is already taken!`)
-    $('#game-board-alerts').delay(2000).fadeOut(200)
-  }
 }
 
 // Create a new game instance within Game API
@@ -75,6 +94,7 @@ const createGameSuccessful = responseData => {
   $('.game-inactive').addClass('hide')
   store.session = responseData
   store.turn = 'X'
+  $('#player-tracker').text(`Player ${store.turn}, you are up!`)
   messageReset()
 }
 
