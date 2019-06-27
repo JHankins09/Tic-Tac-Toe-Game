@@ -24,6 +24,6 @@ $(() => {
 
   // your JS code goes here
   // $('.col-4').on('click', gameEngineEvents.onClick)
-  $('.col-4').on('click', gameEvents.onClick)
+  $('.col-4').on('click', gameEvents.onPlaceToken)
 })
 // $('#index-books').on('click', bookEvents.onGetBooks)
