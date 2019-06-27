@@ -4,15 +4,20 @@
 // const api = require('./api')
 const ui = require('./ui')
 const api = require('./api')
+// const store = require('./../store.js')
 
-// const makeMove = event => {
-//   !$('#box11').class ? ui.signUpSuccessful : .catch(ui.signUpFailure)
-// }
-
-const onClick = event => {
+// action to execute when a game space is selected
+const onPlaceToken = event => {
   console.log(event)
+  if ((event.target).innerHTML) {
+    ui.checkAvailableSpace()
+  } else {
+    ui.placeToken()
+  }
+  // api.updateGame(id, eventData)
 }
 
+// action to execute when 'start game' is selected
 const onCreateGame = event => {
   event.preventDefault()
   api.createGame()
@@ -20,6 +25,7 @@ const onCreateGame = event => {
     .catch(ui.createGameFailure)
 }
 
+// in process.
 const onGetGames = event => {
   event.preventDefault()
   api.getGames()
@@ -28,7 +34,7 @@ const onGetGames = event => {
 }
 
 module.exports = {
-  onClick,
+  onPlaceToken,
   onGetGames,
   onCreateGame
 }
