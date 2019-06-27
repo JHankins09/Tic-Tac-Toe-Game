@@ -8,13 +8,11 @@ const api = require('./api')
 
 // action to execute when a game space is selected
 const onPlaceToken = event => {
-  console.log(event)
   if ((event.target).innerHTML) {
     ui.checkAvailableSpace()
   } else {
     ui.placeToken()
   }
-  // api.updateGame(id, eventData)
 }
 
 // action to execute when 'start game' is selected

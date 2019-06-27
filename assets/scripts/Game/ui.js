@@ -34,7 +34,6 @@ const createGameSuccessful = responseData => {
   $('#sign-up-message').addClass('success')
   $('.game-active').removeClass('hide')
   $('.game-inactive').addClass('hide')
-
   store.turn = 'X'
   messageReset()
 }
