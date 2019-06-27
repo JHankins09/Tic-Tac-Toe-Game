@@ -4,6 +4,7 @@
 // const api = require('./api')
 const ui = require('./ui')
 const api = require('./api')
+
 // const store = require('./../store.js')
 
 // action to execute when a game space is selected
@@ -12,7 +13,9 @@ const onPlaceToken = event => {
     ui.checkAvailableSpace()
   } else {
     ui.placeToken()
+    api.updateGame()
   }
+  // api.updateGame()
 }
 
 // action to execute when 'start game' is selected

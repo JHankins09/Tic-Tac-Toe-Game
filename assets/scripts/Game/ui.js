@@ -8,8 +8,20 @@ const messageReset = function () {
   $('#start-game-message').delay(2000).fadeOut(200)
 }
 
+const gameOver = () => {
+  console.log(store.session.game.cells)
+}
 // Execute the placement of game tokens
 const placeToken = responseData => {
+  const gameSpace = ($(event.target).attr('data-cell-index'))
+  store.session.game.cells[gameSpace] = store.turn
+  const currentGame = {
+    index: gameSpace,
+    value: store.turn,
+    over: false // gameOver()
+  }
+  store.current = currentGame
+  console.log('current', store.session)
   if (store.turn === 'X') {
     $(event.target).append('X').addClass('Taken')
     store.turn = 'O'
@@ -17,6 +29,7 @@ const placeToken = responseData => {
     $(event.target).append('O').addClass('Taken')
     store.turn = 'X'
   }
+  return gameSpace
 }
 
 // Validate the selected game space hasn't already been selected.
@@ -34,6 +47,8 @@ const createGameSuccessful = responseData => {
   $('#sign-up-message').addClass('success')
   $('.game-active').removeClass('hide')
   $('.game-inactive').addClass('hide')
+  store.session = responseData
+  console.log(responseData)
   store.turn = 'X'
   messageReset()
 }
