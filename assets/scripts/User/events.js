@@ -21,6 +21,16 @@ const onSignUp = event => {
     // .catch(ui.signUpFailure)
 }
 
+const loginSignupToggle = () => {
+  event.preventDefault()
+  ui.loginSignupToggle()
+}
+
+const signupLoginToggle = () => {
+  event.preventDefault()
+  ui.signupLoginToggle()
+}
+
 const onSignIn = event => {
   event.preventDefault()
   const form = event.target
@@ -50,5 +60,7 @@ module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  loginSignupToggle,
+  signupLoginToggle
 }

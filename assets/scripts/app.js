@@ -23,5 +23,8 @@ $(() => {
   $('#new-game').on('submit', gameEvents.onNewGame)
   // Active game listeners
   $('.col-4').on('click', gameEvents.onPlaceToken)
+
+  $('#sign-up-sign-in-toggle').on('click', userEvents.loginSignupToggle)
+  $('#sign-in-sign-up-toggle').on('click', userEvents.signupLoginToggle)
 })
 // $('#index-books').on('click', bookEvents.onGetBooks)

@@ -10,6 +10,16 @@ const messageReset = function () {
   $('#sign-out-message').delay(2000).fadeOut(200)
 }
 
+const loginSignupToggle = function () {
+  $('#sign-up').addClass('inactive')
+  $('#sign-in').removeClass('inactive')
+}
+
+const signupLoginToggle = function () {
+  $('#sign-up').removeClass('inactive')
+  $('#sign-in').addClass('inactive')
+}
+
 const signUpSuccessful = responseData => {
   $('#sign-up-message').show()
   $('#sign-up-message').text(`Welcome ${responseData.user.email}, you've signed up successfully!`)
@@ -81,5 +91,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  loginSignupToggle,
+  signupLoginToggle
 }
