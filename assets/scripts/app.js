@@ -19,7 +19,8 @@ $(() => {
   // In-active game instance listeners
   $('#start-game').on('submit', gameEvents.onCreateGame)
   $('#get-games').on('submit', gameEvents.onGetGames)
-
+  $('#see-record').on('submit', gameEvents.onSeeRecord)
+  $('#new-game').on('submit', gameEvents.onNewGame)
   // Active game listeners
   $('.col-4').on('click', gameEvents.onPlaceToken)
 })

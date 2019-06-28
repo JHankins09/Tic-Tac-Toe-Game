@@ -3,6 +3,12 @@
 const getFormFields = require('./../../../lib/get-form-fields.js')
 const api = require('./api')
 const ui = require('./ui')
+const gameEvents = require('../game/events')
+
+const signInProcess = () => {
+  ui.signInSuccessful()
+  gameEvents.getGames()
+}
 
 const onSignUp = event => {
   event.preventDefault()
