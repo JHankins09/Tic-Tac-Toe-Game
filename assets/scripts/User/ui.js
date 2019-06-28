@@ -54,17 +54,13 @@ const signInFailure = responseData => {
 }
 
 const changePasswordSuccess = responseData => {
-  $('#change-pw-message').show()
-  $('#change-pw-message').text(`Nice work - You've updated your password.`)
-  $('#change-pw-message').removeClass('failure')
-  $('#change-pw-message').addClass('success')
+  $('#global-messages').show()
+  $('#global-messages').text(`Nice work - You've updated your password.`)
 }
 
 const changePasswordFailure = responseData => {
-  $('#change-pw-message').show()
-  $('#change-pw-message').text(`Uh oh, that didn't seem to work!`)
-  $('#change-pw-message').removeClass('success')
-  $('#change-pw-message').addClass('failure')
+  $('#global-messages').show()
+  $('#global-messages').text(`Uh oh, that didn't seem to work!`)
 }
 
 const signOutSuccess = responseData => {
