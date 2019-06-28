@@ -16,9 +16,7 @@ const onSignUp = event => {
   const formData = getFormFields(form)
   api.signUp(formData)
     .then(ui.signUpSuccessful)
-    // .then(ui.signUpSuccessful)
     .catch(ui.signUpFailure)
-    // .catch(ui.signUpFailure)
 }
 
 const loginSignupToggle = () => {
@@ -56,11 +54,24 @@ const onSignOut = event => {
     .catch(ui.signOutFailure)
 }
 
+const userSettingsShow = event => {
+  event.preventDefault()
+  ui.userSettingsShow()
+}
+
+const backToMain = event => {
+  event.preventDefault()
+  ui.backToMain()
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
   loginSignupToggle,
-  signupLoginToggle
+  signupLoginToggle,
+  signInProcess,
+  userSettingsShow,
+  backToMain
 }

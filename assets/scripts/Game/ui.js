@@ -14,7 +14,7 @@ store.moveCounter = []
 const checkAvailableSpace = responseData => {
   if (store.gameStatus !== 'over') {
     $('#game-board-alerts').show()
-    $('#game-board-alerts').text(`This space is already taken!`)
+    $('#global-messages').text(`This space is already taken!`)
     $('#game-board-alerts').delay(2000).fadeOut(200)
   }
 }
@@ -23,8 +23,6 @@ const checkAvailableSpace = responseData => {
 const isGameOver = () => {
   const tokenLocation = store.session.game.cells
   const currentPlayer = store.turn
-  console.log('Checking if ' + store.turn + ' has won', currentPlayer, tokenLocation)
-  console.log(tokenLocation)
 
   // look for a winner
   if ((currentPlayer === tokenLocation[0] && currentPlayer === tokenLocation[1] && currentPlayer === tokenLocation[2]) ||
@@ -36,17 +34,17 @@ const isGameOver = () => {
   (currentPlayer === tokenLocation[0] && currentPlayer === tokenLocation[4] && currentPlayer === tokenLocation[8]) ||
   (currentPlayer === tokenLocation[2] && currentPlayer === tokenLocation[4] && currentPlayer === tokenLocation[6])) {
     // display winner message and end game
-    $('#game-board-alerts').show()
-    $('#game-board-alerts').text(`Congrats! Player ${store.turn} is the winner!`)
-    $('#player-tracker').hide()
-    console.log(tokenLocation)
+    $('#global-messages').text(`Congrats! Player ${store.turn} is the winner!`)
+    $('.game-inactive').removeClass('hide')
     store.gameStatus = 'over'
     return true
     // look for all spaces to be occupied
   } else if (store.moveCounter.length === 9) {
     $('#game-board-alerts').show()
     $('#player-tracker').hide()
-    $('#game-board-alerts').text('This game is a draw!')
+    $('#global-messages').text('This game is a draw!')
+    $('.game-inactive').show()
+    $('#player-tracker').hide()
     store.gameStatus = 'over'
     store.current.over = true
     return true
@@ -70,7 +68,7 @@ const placeToken = responseData => {
     $(event.target).append('X').addClass('Taken')
     store.moveCounter.push('x')
     $('#player-tracker').text('')
-    $('#player-tracker').text(`Player O, you are up! Make move ${store.moveCounter.length + 1}`)
+    $('#global-messages').text(`Player O, you are up! Make move ${store.moveCounter.length + 1}`)
     if (isGameOver()) {
     }
     store.turn = 'O'
@@ -78,10 +76,11 @@ const placeToken = responseData => {
     $(event.target).append('O').addClass('Taken')
     store.moveCounter.push('o')
     $('#player-tracker').text('')
-    $('#player-tracker').text(`Player X, you are up! Make move ${store.moveCounter.length + 1}`)
+    $('#global-messages').text(`Player X, you are up! Make move ${store.moveCounter.length + 1}`)
     if (isGameOver()) {
       $('#game-board-alerts').show()
       $('#game-board-alerts').text(`Congrats! Player ${store.turn} is the winner!`)
+      $('.game-inactive').removeClass('hide')
     }
     store.turn = 'X'
   }
@@ -90,41 +89,36 @@ const placeToken = responseData => {
 
 // Create a new game instance within Game API
 const createGameSuccessful = responseData => {
-  $('#start-game-message').show()
-  $('#start-game-message').text(`Let's boogie!!!!`)
-  $('#sign-up-message').removeClass('failure')
-  $('#sign-up-message').addClass('success')
   $('.game-active').removeClass('hide')
+  $('.game-board').removeClass('hide')
   $('.game-inactive').addClass('hide')
+  $('.initial-menu').addClass('hideForGood')
+  $('.continue-menu').removeClass('hide')
   store.session = responseData
   store.turn = 'X'
-  $('#player-tracker').text(`Player ${store.turn}, you are up! Make move ${store.moveCounter.length + 1}`)
+  $('#global-messages').text(`Player ${store.turn}, you are up! Make move ${store.moveCounter.length + 1}`)
   messageReset()
   console.log(store.session.game.cells)
   store.moveCounter = []
+  $('#game-id').text(`Game #: ${store.session.game.id}`)
 }
 
 // Create New gameEvents
 const createNewGame = response => {
-  $('#start-game-message').show()
-  $('#start-game-message').text(`Let's boogie!!!!`)
-  $('#sign-up-message').removeClass('failure')
-  $('#sign-up-message').addClass('success')
   $('.game-active').removeClass('hide')
+  $('.game-board').removeClass('hide')
   $('.game-inactive').addClass('hide')
   store.session = response
   store.turn = 'X'
-  $('#player-tracker').text(`Player ${store.turn}, you are up! Make move ${store.moveCounter.length + 1}`)
+  store.moveCounter = []
+  $('#global-messages').text(`Player ${store.turn}, you are up! Make move ${store.moveCounter.length + 1}`)
   messageReset()
-  console.log(store.session.game.cells)
   $('.game-space').text('')
   $('#game-board-alerts').hide()
   store.current.over = false
   store.gameStatus = 'active'
   store.session.game.cells = ['', '', '', '', '', '', '', '', '']
-  store.moveCounter = []
-  $('#player-tracker').show()
-  $('#player-tracker').text(`Player X, you are up! Make move ${store.moveCounter.length + 1}`)
+  $('#game-id').text(`Game #: ${store.session.game.id}`)
 }
 
 // Catchall if game is not able to be created.
@@ -179,9 +173,7 @@ const seeRecordSuccessful = responseData => {
     }
   }
 
-  console.log('wins = ', wins, 'losses = ', losses, 'ties = ', ties)
-  $('#see-record-message').show()
-  $('#see-record-message').html(`<p>Games played - ${gamesPlayed}`)
+  $('#global-messages').text(`You have played ${gamesPlayed}`)
 
   messageReset()
 }

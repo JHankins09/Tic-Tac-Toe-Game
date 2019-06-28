@@ -24,9 +24,9 @@
 
         <!-- Sign Up -->
 
-      <section class="sign-in-screen pre-login">
+        <section class="sign-in-screen pre-login">
 
-        <div class="sign-up active">
+        <div class="sign-up">
           <form id="sign-up">
             <h2>Sign-Up</h2>
             <h3 id="sign-up-message"></h3>
@@ -39,95 +39,105 @@
           </form>
         </div>
 
-        <div class="sign-in">
+          <!-- Sign In -->
+
+        <div class="sign-in inactive">
+
           <form id="sign-in">
             <h2>Sign-in</h2>
+            <h3 id="signed-up-message"></h3>
             <h3 id="sign-in-message"></h3>
-            <input name="credentials[email]" type="text" placeholder="an@example.email">
-            <input name="credentials[password]" type="password" placeholder="an example password">
+            <input name="credentials[email]" type="text" placeholder="Email">
+            <input name="credentials[password]" type="password" placeholder="Password">
+            <br/>
             <button type="submit">Sign in</button>
             <p> -OR- </p>
             <button id="sign-in-sign-up-toggle">-Sign up-</button>
           </form>
-      </div>
+        </div>
 
-    </section>
+      </section>
+
+    <!-- End Login screen -->
+
+    <!-- Logged In Screen -->
 
       <!-- Pre-game Screen Content -->
 
-        <div class="logged-in game-inactive hide">
-          <h2>API Start-Game Feature</h2>
-          <form id="start-game">
-            <h3 id="start-game-message"></h3>
-            <button type="submit">Start New Game</button>
-          </form>
-        </div>
+        <section class="logged-in hide game-menu">
+
+        <h2 class="hide" id="global-messages"></h2>
 
         <div class="logged-in game-inactive hide">
-          <h2>API Start-Game Feature</h2>
-          <form id="get-games">
-            <h3 id="get-games-message"></h3>
-            <button type="submit">Get Games</button>
-          </form>
-        </div>
 
-        <div class="logged-in game-inactive hide">
-          <h2>API Start-Game Feature</h2>
-          <form id="see-record">
-            <h3 id="see-record-message"></h3>
+          <form id="start-game" class="initial-menu main">
+            <button type="submit">Play Game</button>
+          </form>
+
+          <form id="new-game" class="continue-menu hide main">
+            <button type="submit">New Game</button>
+          </form>
+
+          <form id="see-record" class="main">
             <button type="submit">See my record</button>
           </form>
-        </div>
 
-          <div class="game-active hide">
-            <h2>Tic-Tac-Toe Game Board</h2>
+          <form id="sign-out" class="main">
+            <button type="submit">Sign Out</button>
+          </form>
 
-            <form class="game-board container">
-              <h3 id="player-tracker"></h3>
-              <h3 id="game-board-alerts"></h3>
-              <div class="row">
-                <div id="box11" data-cell-index='0' class="game-space left top col-4"></div>
-                <div id="box12" data-cell-index='1' class="game-space middle top col-4"></div>
-                <div id="box13" data-cell-index='2' class="game-space right top col-4"></div>
-              </div>
-              <div class="row">
-                <div id="box21" data-cell-index='3' class="game-space left mid col-4"></div>
-                <div id="box22" data-cell-index='4' class="game-space middle mid col-4"></div>
-                <div id="box23" data-cell-index='5' class="game-space right mid col-4"></div>
-              </div>
-              <div class="row">
-                <div id="box31" data-cell-index='6' class="game-space left bot col-4"></div>
-                <div id="box32" data-cell-index='7' class="game-space middle bot col-4"></div>
-                <div id="box33" data-cell-index='8' class="game-space right bot col-4"></div>
-              </div>
-            </form>
-          </div>
+          <button id="user-settings" class="main">User settings</button>
 
-          <div class="logged-in hide">
-            <h2>API New game feature</h2>
-            <form id="new-game">
-              <button type="submit">New Game</button>
-            </form>
-          </div>
-
-
-          <div class="logged-in hide">
-            <h2>API Change Password Feature</h2>
+          <aside id="user-settings-menu" class="sub hide">
+            <h2 class="description">Manage your user settings here</h2>
             <form id="change-pw">
-              <h3 id="change-pw-message"></h3>
+              <h2>Change password</h2>
               <input name="passwords[old]" type="password" placeholder="old password">
               <input name="passwords[new]" type="password" placeholder="new password">
-              <button type="submit">Change Password</button>
+              <button type="submit">Update</button>
             </form>
-          </div>
+            <button id="back-to-main">Back</button>
 
-          <div class="logged-in hide">
-            <h2>API Sign-out Feature</h2>
-            <form id="sign-out">
-              <h3 id="sign-out-message"></h3>
-              <button type="submit">Sign Out</button>
-            </form>
-          </div>
+
+          </aside>
+
+        </div>
+
+        <!-- <div class="logged-in game-inactive hide">
+        <h2>API Start-Game Feature</h2>
+        <form id="get-games">
+        <h3 id="get-games-message"></h3>
+        <button type="submit">Get Games</button>
+        </form>
+        </div>
+        -->
+
+      <!-- Active Game Content -->
+
+        <div class="game-active hide">
+          <form class="game-board">
+            <div class="row">
+              <div id="box11" data-cell-index='0' class="game-space left top"></div>
+              <div id="box12" data-cell-index='1' class="game-space middle top"></div>
+              <div id="box13" data-cell-index='2' class="game-space right top"></div>
+            </div>
+            <div class="row">
+              <div id="box21" data-cell-index='3' class="game-space left mid"></div>
+              <div id="box22" data-cell-index='4' class="game-space middle mid"></div>
+              <div id="box23" data-cell-index='5' class="game-space right mid"></div>
+            </div>
+            <div class="row">
+              <div id="box31" data-cell-index='6' class="game-space left bot"></div>
+              <div id="box32" data-cell-index='7' class="game-space middle bot"></div>
+              <div id="box33" data-cell-index='8' class="game-space right bot"></div>
+            </div>
+          </form>
+          <p id="game-id"></p>
+        </div>
+
+
+      </section>
+
       </main>
     </body>
 </html>

@@ -11,21 +11,21 @@ const messageReset = function () {
 }
 
 const loginSignupToggle = function () {
-  $('#sign-up').addClass('inactive')
-  $('#sign-in').removeClass('inactive')
+  $('.sign-up').addClass('inactive')
+  $('.sign-in').removeClass('inactive')
 }
 
 const signupLoginToggle = function () {
-  $('#sign-up').removeClass('inactive')
-  $('#sign-in').addClass('inactive')
+  $('.sign-up').removeClass('inactive')
+  $('.sign-in').addClass('inactive')
 }
 
 const signUpSuccessful = responseData => {
-  $('#sign-up-message').show()
-  $('#sign-up-message').text(`Welcome ${responseData.user.email}, you've signed up successfully!`)
+  $('#signed-up-message').show()
+  $('#signed-up-message').text(`Nice - you've signed up successfully! Now please sign in!`)
   $('#sign-up-message').removeClass('failure')
   $('#sign-up-message').addClass('success')
-  messageReset()
+  loginSignupToggle()
 }
 
 const signUpFailure = responseData => {
@@ -37,10 +37,8 @@ const signUpFailure = responseData => {
 }
 
 const signInSuccessful = responseData => {
-  $('#sign-in-message').show()
-  $('#sign-in-message').text(`Welcome back ${responseData.user.email}, ready to play some more?`)
-  $('#sign-in-message').removeClass('failure')
-  $('#sign-in-message').addClass('succes')
+  $('#global-messages').show()
+  $('#global-messages').text(`Welcome ${responseData.user.email}, ready to play some Tic-Tac-Toe?`)
   store.user = responseData.user
   $('.logged-in').removeClass('hide')
   $('.sign-in-screen').addClass('hide')
@@ -70,10 +68,11 @@ const changePasswordFailure = responseData => {
 }
 
 const signOutSuccess = responseData => {
-  $('#sign-out-message').show()
-  $('#sign-out-message').text('Thanks for playing!')
-  $('#sign-out-message').removeClass('failure')
-  $('#sign-out-message').addClass('success')
+  $('.logged-in').addClass('hide')
+  $('.sign-in-screen').removeClass('hide')
+  $('.sign-up').removeClass('inactive')
+  $('.sign-in').addClass('inactive')
+  messageReset()
 }
 
 const signOutFailure = resposeData => {
@@ -81,6 +80,17 @@ const signOutFailure = resposeData => {
   $('#sign-out-message').text('Uh oh - something went terribly wrong!')
   $('#sign-out-message').removeClass('success')
   $('#sign-out-message').addClass('failure')
+}
+
+const userSettingsShow = () => {
+  $('.sub').removeClass('hide')
+  $('.main').addClass('hide')
+  $('.game-active').addClass('hide')
+}
+
+const backToMain = () => {
+  $('.sub').addClass('hide')
+  $('.main').removeClass('hide')
 }
 
 module.exports = {
@@ -93,5 +103,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   loginSignupToggle,
-  signupLoginToggle
+  signupLoginToggle,
+  userSettingsShow,
+  backToMain
 }
