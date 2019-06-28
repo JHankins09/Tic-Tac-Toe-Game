@@ -15,8 +15,6 @@ const onPlaceToken = event => {
     if ((event.target).innerHTML) {
       ui.checkAvailableSpace()
     } else if (store.gameStatus !== 'over') {
-      console.log(store.gameStatus)
-      console.log('Game status before token placed', ui.isGameOver())
       ui.placeToken()
       api.updateGame()
     }
@@ -31,16 +29,33 @@ const onCreateGame = event => {
     .catch(ui.createGameFailure)
 }
 
+// action to execute to start a new gameEvents
+const onNewGame = event => {
+  event.preventDefault()
+  api.newGame()
+    .then(ui.createNewGame)
+    .catch(console.error)
+}
+
 // in process.
 const onGetGames = event => {
   event.preventDefault()
   api.getGames()
-    .then(console.log(event))
+    .then(ui.getGamesSuccessful)
+    .catch(console.error)
+}
+
+const onSeeRecord = event => {
+  event.preventDefault()
+  api.getRecord()
+    .then(ui.seeRecordSuccessful)
     .catch(console.error)
 }
 
 module.exports = {
   onPlaceToken,
   onGetGames,
-  onCreateGame
+  onCreateGame,
+  onSeeRecord,
+  onNewGame
 }

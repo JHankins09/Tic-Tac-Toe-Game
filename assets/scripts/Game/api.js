@@ -15,6 +15,18 @@ const createGame = formData => {
   })
 }
 
+// API call to start a new game
+const newGame = formData => {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    data: formData,
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 // API call to update game
 const updateGame = () => {
   return $.ajax({
@@ -25,7 +37,7 @@ const updateGame = () => {
           'index': store.current.index,
           'value': store.current.value
         },
-        'over': false
+        'over': store.current.over
       }
     },
     method: 'PATCH',
@@ -46,11 +58,21 @@ const getGame = (id) => {
   })
 }
 
+// Get record
+const getRecord = () => {
+  return $.ajax({
+    url: config.apiUrl + '/games?over=true',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 // In Process
-const getGames = formData => {
+const getGames = () => {
   return $.ajax({
     url: config.apiUrl + '/games',
-    data: formData,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -62,5 +84,7 @@ module.exports = {
   getGames,
   createGame,
   updateGame,
-  getGame
+  getGame,
+  getRecord,
+  newGame
 }
