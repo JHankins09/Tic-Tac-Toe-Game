@@ -1,5 +1,103 @@
 @import '~bootstrap/scss/bootstrap';
 
+
+
+
+body {
+  background: #42615a;
+}
+
+.title {
+  padding: 15px 70px;
+  margin: auto;
+  text-align: left;
+
+  h1 {
+    color: #d66251;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 70px;
+  }
+}
+
+.inactive {
+  display: none;
+}
+
+.pre-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  background: #d66251;
+  color: #42615a;
+  border: none;
+  border-radius: 20px;
+  margin: 5%;
+  padding: 5px;
+  font-style: italic;
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+form {
+  display: inline;
+  display: flex;
+  padding: 15%;
+  flex-direction: column;
+  background: #3b7b6c;
+  border-radius: 20px;
+  width: 30vw;
+  text-align: center;
+  margin-bottom: 105px;
+
+  h2 {
+    color:#51d696;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 2.5em;
+    font-weight: bold;
+    padding-bottom: 35px;
+  }
+  h3 {
+    color:#d65173;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 2.5em;
+  }
+
+  p {
+    color:#51d696;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 35px 0 15px 0;
+  }
+
+  input {
+    text-align: center;
+    padding: 0 15px;
+    margin: 5px 0;
+    border-radius: 20px;
+    background: #42615a;
+    border:#51d696;
+    color: #d66251;
+    font-family: 'Permanent Marker', cursive;
+  }
+
+  input:hover {
+    background: #6ebd97;
+  }
+
+  input:focus {
+    background: #51d696;
+  }
+
+  input:checked {
+    background: #51d696;
+  }
+}
+
 .game-board {
   height: 600px;
   width: 600px;

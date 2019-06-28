@@ -4,6 +4,9 @@
       <title>Example</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
+      <!-- fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Permanent+Marker|Shadows+Into+Light&display=swap" rel="stylesheet">
+
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
@@ -13,7 +16,44 @@
     </head>
     <body>
       <main>
-        <h1>Browser Template</h1>
+
+        <section class='title'>
+            <h1>Tic-Tac-Toe</h1>
+        </section>
+      <!-- Login Screen Content -->
+
+        <!-- Sign Up -->
+
+      <section class="sign-in-screen pre-login">
+
+        <div class="sign-up active">
+          <form id="sign-up">
+            <h2>Sign-Up</h2>
+            <h3 id="sign-up-message"></h3>
+            <input name="credentials[email]" type="text" placeholder="Email">
+            <input name="credentials[password]" type="password" placeholder="Password">
+            <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+            <button type="submit">Sign up</button>
+            <p> -OR- </p>
+            <button id="sign-up-sign-in-toggle">-Sign in-</button>
+          </form>
+        </div>
+
+        <div class="sign-in">
+          <form id="sign-in">
+            <h2>Sign-in</h2>
+            <h3 id="sign-in-message"></h3>
+            <input name="credentials[email]" type="text" placeholder="an@example.email">
+            <input name="credentials[password]" type="password" placeholder="an example password">
+            <button type="submit">Sign in</button>
+            <p> -OR- </p>
+            <button id="sign-in-sign-up-toggle">-Sign up-</button>
+          </form>
+      </div>
+
+    </section>
+
+      <!-- Pre-game Screen Content -->
 
         <div class="logged-in game-inactive hide">
           <h2>API Start-Game Feature</h2>
@@ -70,26 +110,6 @@
             </form>
           </div>
 
-          <div class="sign-in-screen">
-            <h2>API Sign-up Feature</h2>
-            <form id="sign-up">
-              <h3 id="sign-up-message"></h3>
-              <input name="credentials[email]" type="text" placeholder="an@example.email">
-              <input name="credentials[password]" type="password" placeholder="an example password">
-              <input name="credentials[password_confirmation]" type="password" placeholder="an example password">
-              <button type="submit">Sign up</button>
-            </form>
-          </div>
-
-          <div class="sign-in-screen">
-            <h2>API Sign-in Feature</h2>
-            <form id="sign-in">
-              <h3 id="sign-in-message"></h3>
-              <input name="credentials[email]" type="text" placeholder="an@example.email">
-              <input name="credentials[password]" type="password" placeholder="an example password">
-              <button type="submit">Sign in</button>
-            </form>
-          </div>
 
           <div class="logged-in hide">
             <h2>API Change Password Feature</h2>
