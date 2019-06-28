@@ -22,9 +22,11 @@ $(() => {
   $('#see-record').on('submit', gameEvents.onSeeRecord)
   $('#new-game').on('submit', gameEvents.onNewGame)
   // Active game listeners
-  $('.col-4').on('click', gameEvents.onPlaceToken)
+  $('.game-space').on('click', gameEvents.onPlaceToken)
 
   $('#sign-up-sign-in-toggle').on('click', userEvents.loginSignupToggle)
   $('#sign-in-sign-up-toggle').on('click', userEvents.signupLoginToggle)
+  $('#user-settings').on('click', userEvents.userSettingsShow)
+  $('#back-to-main').on('click', userEvents.backToMain)
 })
 // $('#index-books').on('click', bookEvents.onGetBooks)

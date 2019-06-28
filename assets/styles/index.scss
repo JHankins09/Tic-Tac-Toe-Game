@@ -1,16 +1,21 @@
 @import '~bootstrap/scss/bootstrap';
 
 
-
+.hideForGood {
+  display: none;
+}
 
 body {
   background: #42615a;
+  height: 100vh;
 }
+
+// Title / Global Alerts Content
 
 .title {
   padding: 15px 70px;
   margin: auto;
-  text-align: left;
+  text-align: center;
 
   h1 {
     color: #d66251;
@@ -19,15 +24,222 @@ body {
   }
 }
 
+// Toggle active inactive display
+
 .inactive {
   display: none;
 }
+
+// Pre-login Screen
 
 .pre-login {
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
+
+// sign-in screen forms
+
+.sign-in-screen {
+
+  #signed-up-message {
+    width: 80%;
+    border: #3b7b6c 3px solid;
+    color:#d66251;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 35px;
+    font-weight: 200;
+    text-align: center;
+    margin: auto;
+    border-radius: 15px;
+    background: #42615a;
+    border-radius: 15px;
+  }
+
+  form {
+    display: inline;
+    display: flex;
+    padding: 15%;
+    flex-direction: column;
+    background: #3b7b6c;
+    border-radius: 20px;
+    width: 30vw;
+    text-align: center;
+    margin-bottom: 105px;
+
+    h2 {
+      color:#51d696;
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 35px;
+      background: #42615a;
+      border-radius: 20px;
+    }
+    h3 {
+      background:#d65173;
+      border-radius: 20px;
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 2.5em;
+    }
+
+    p {
+      color:#51d696;
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 1.5em;
+      font-weight: bold;
+      padding: 15px 0 5px 0;
+    }
+
+    input {
+      text-align: center;
+      padding: 0 15px;
+      margin: 5px 0;
+      border-radius: 20px;
+      background: #42615a;
+      border:#51d696;
+      color: #d66251;
+      font-family: 'Permanent Marker', cursive;
+    }
+
+    input:hover {
+      background: #6ebd97;
+    }
+
+    input:focus {
+      background: #51d696;
+    }
+
+    input:checked {
+      background: #51d696;
+    }
+  }
+}
+
+// Logged in Screen
+
+.logged-in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #3b7b6c;
+  margin: auto;
+  width: 40vw;
+  border-radius: 20px;
+  padding-bottom: 5%;
+
+  h2 { // Global Alerts
+    width: 30vw;
+    border: #3b7b6c 3px solid;
+    color:#d66251;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 35px;
+    font-weight: 200;
+    text-align: center;
+    margin: 10% 5px 10%;
+    border-radius: 15px;
+    background: #42615a;
+    border-radius: 15px;
+  }
+
+  button {
+    text-align: center;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 20px;
+    background: #d66251;
+    color: #42615a;
+    border:#51d696;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1em;
+    width: 15vw;
+
+  }
+  button:hover {
+    background: #42615a;
+    color: #d66251;
+    border: #d66251 2px solid;
+  }
+
+}
+
+.user-settings-active {
+  display: none;
+
+  form {
+    display: inline;
+    display: flex;
+    padding: 15%;
+    flex-direction: column;
+    background: #3b7b6c;
+    border-radius: 20px;
+    width: 30vw;
+    text-align: center;
+    margin-bottom: 105px;
+
+    h2 {
+      color:#51d696;
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 35px;
+      background: #42615a;
+      border-radius: 20px;
+    }
+    h3 {
+      background:#d65173;
+      border-radius: 20px;
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 2.5em;
+    }
+
+    p {
+      color:#51d696;
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 1.5em;
+      font-weight: bold;
+      padding: 15px 0 5px 0;
+    }
+
+    input {
+      text-align: center;
+      padding: 0 15px;
+      margin: 5px 0;
+      border-radius: 20px;
+      background: #42615a;
+      border:#51d696;
+      color: #d66251;
+      font-family: 'Permanent Marker', cursive;
+    }
+
+    input:hover {
+      background: #6ebd97;
+    }
+
+    input:focus {
+      background: #51d696;
+    }
+
+    input:checked {
+      background: #51d696;
+    }
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.game-menu-container {
+  display: inline-block;
+  margin: auto;
+  text-align: center;
+  width: 40vw;
+
+
+}
+
+// Global css
 
 button {
   background: #d66251;
@@ -42,87 +254,133 @@ button {
   font-size: 1.5em;
 }
 
-form {
-  display: inline;
-  display: flex;
-  padding: 15%;
-  flex-direction: column;
-  background: #3b7b6c;
-  border-radius: 20px;
-  width: 30vw;
-  text-align: center;
-  margin-bottom: 105px;
 
-  h2 {
-    color:#51d696;
-    font-family: 'Shadows Into Light', cursive;
-    font-size: 2.5em;
-    font-weight: bold;
-    padding-bottom: 35px;
-  }
-  h3 {
-    color:#d65173;
-    font-family: 'Shadows Into Light', cursive;
-    font-size: 2.5em;
-  }
-
-  p {
-    color:#51d696;
-    font-family: 'Shadows Into Light', cursive;
-    font-size: 1.5em;
-    font-weight: bold;
-    padding: 35px 0 15px 0;
-  }
-
-  input {
-    text-align: center;
-    padding: 0 15px;
-    margin: 5px 0;
-    border-radius: 20px;
-    background: #42615a;
-    border:#51d696;
-    color: #d66251;
-    font-family: 'Permanent Marker', cursive;
-  }
-
-  input:hover {
-    background: #6ebd97;
-  }
-
-  input:focus {
-    background: #51d696;
-  }
-
-  input:checked {
-    background: #51d696;
-  }
-}
-
-.game-board {
-  height: 600px;
-  width: 600px;
-}
 
 .hide {
   display: none;
 }
 
-.col-4 {
-  height: 200px;
+.game-active {
+  text-align: center;
+
+  .game-board {
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+
+    .top {
+      border-bottom: 1px #000000 solid;
+    }
+
+    .right {
+      border-left:  1px #000000 solid;
+    }
+
+    .left {
+      border-right:  1px #000000 solid;
+    }
+
+    .bot {
+      display: inline-block;
+      border-top:  1px #000000 solid;
+    }
+  }
+  .game-space {
+    display: inline-block;
+    height: 15vh;
+    width: 15vh;
+    color: #d66251;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 70px;
+  }
+
+  p {
+    color:#d66251;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 15px 0 5px 0;
+  }
 }
 
-.top {
-  border-bottom: 1px #000000 solid;
-}
+.sub {
+  text-align: center;
+  background: #42615a;
+  border-radius: 20px;
+  padding-bottom: 5%;
 
-.right {
-  border-left:  1px #000000 solid;
-}
+  form {
+    display: inline;
+    display: flex;
+    padding: 0;
+    margin: auto;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 30vw;
+    text-align: center;
 
-.left {
-  border-right:  1px #000000 solid;
-}
+    h3 {
+      background: #d65173;
+      border-radius: 20px;
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 2.5em;
+    }
 
-.bot {
-  border-top:  1px #000000 solid;
+    .description {
+      width: 100%;
+      background: #3b7b6c;
+      margin: 0 auto 30px;
+      font-weight: bold;
+    }
+
+    h2 {
+      width: 100%;
+      background: #3b7b6c;
+      margin: 0 auto 30px;
+    }
+
+    p {
+      color:#51d696;
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 1.5em;
+      font-weight: bold;
+      padding: 15px 0 5px 0;
+    }
+
+    input {
+      text-align: center;
+      padding: 0 15px;
+      margin: 5px auto;
+      border-radius: 20px;
+      background: #3b7b6c;
+      border: #d66251 1px solid;
+      color: #d66251;
+      font-family: 'Permanent Marker', cursive;
+    }
+
+    input:hover {
+      background: #6ebd97;
+    }
+
+    input:focus {
+      background: #51d696;
+    }
+
+    input:checked {
+      background: #51d696;
+    }
+
+    button {
+      background: #d66251;
+      color: #42615a;
+      border: none;
+      border-radius: 20px;
+      margin: 5% auto;
+      padding: 5px;
+      font-style: italic;
+      font-family: 'Shadows Into Light', cursive;
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+  }
 }
