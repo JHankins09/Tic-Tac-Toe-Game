@@ -173,7 +173,7 @@ const seeRecordSuccessful = responseData => {
     }
   }
 
-  $('#global-messages').text(`You have played ${gamesPlayed}`)
+  $('#global-messages').text(`You have played ${gamesPlayed} games`)
 
   messageReset()
 }
