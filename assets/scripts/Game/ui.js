@@ -142,7 +142,6 @@ const getGamesSuccessful = responseData => {
 
 const seeRecordSuccessful = responseData => {
   const gamesPlayed = responseData.games.length
-
   let wins = 0
   let ties = 0
   let losses = 0
@@ -153,32 +152,51 @@ const seeRecordSuccessful = responseData => {
       if (responseEmail === userEmail) {
         return 'X'
       } else {
-        return 'Y'
+        return 'O'
       }
     }
     // console.log('Player is ' + playerIs())
     const gameData = responseData.games[i].cells
+    console.log(gameData)
     const xValue = gameData.filter(value => value === 'X').length
-    const yValue = gameData.filter(value => value === 'Y').length
+    const yValue = gameData.filter(value => value === 'O').length
     const gameWinner = function () {
-      if (xValue > yValue) {
+      if (xValue > yValue && xValue < 5) {
+        console.log(xValue, yValue, 'X')
         return 'X'
-      } else if (xValue < yValue) {
-        return 'Y'
-      } else if (xValue === yValue) {
-        ties++
-        return 'Tie'
+      } else if (xValue === yValue && xValue < 5) {
+        console.log(xValue, yValue, 'O')
+        return 'O'
+      } else if (xValue === 5) {
+        if ((gameData[0] === 'X' && gameData[1] === 'X' && gameData[2] === 'X') ||
+          (gameData[3] === 'X' && gameData[4] === 'X' && gameData[5] === 'X') ||
+          (gameData[6] === 'X' && gameData[7] === 'X' && gameData[8] === 'X') ||
+          (gameData[0] === 'X' && gameData[3] === 'X' && gameData[6] === 'X') ||
+          (gameData[1] === 'X' && gameData[4] === 'X' && gameData[7] === 'X') ||
+          (gameData[2] === 'X' && gameData[5] === 'X' && gameData[8] === 'X') ||
+          (gameData[0] === 'X' && gameData[4] === 'X' && gameData[8] === 'X') ||
+          (gameData[2] === 'X' && gameData[4] === 'X' && gameData[6] === 'X')) {
+          return 'X'
+        } else {
+          ties++
+          console.log(xValue, yValue, 'tie')
+          return 'Tie'
+        }
       }
     }
     // console.log(gameWinner())
-    if (playerIs() === gameWinner()) {
-      wins++
+    if (gameWinner() === 'Tie') {
     } else if (playerIs() === gameWinner()) {
+      wins++
+    } else if (playerIs() !== gameWinner()) {
       losses++
     }
   }
 
-  $('#global-messages').text(`You have played ${gamesPlayed} games`)
+  $('#global-messages').html(`<p>You have played ${gamesPlayed} games:<br/>
+    ${wins} X wins<br/>
+    ${losses} O wins<br/>
+    ${ties} ties<p>`)
 
   messageReset()
 }
