@@ -20,7 +20,6 @@ const checkAvailableSpace = responseData => {
   } else {
     $('#game-board-alert').show()
     $('#game-board-alert').removeClass('hide')
-    console.log('Click Registered')
     messageReset()
   }
 }
@@ -69,7 +68,6 @@ const placeToken = responseData => {
     over: isGameOver()
   }
   store.current = currentGame
-  // console.log('current', store.session)
   if (store.turn === 'X') {
     $(event.target).append('X').addClass('Taken')
     store.moveCounter.push('x')
@@ -137,7 +135,6 @@ const createGameFailure = responseData => {
 
 // Execute on retrieved games
 const getGamesSuccessful = responseData => {
-//   console.log(responseData)
 }
 
 const seeRecordSuccessful = responseData => {
@@ -155,17 +152,13 @@ const seeRecordSuccessful = responseData => {
         return 'O'
       }
     }
-    // console.log('Player is ' + playerIs())
     const gameData = responseData.games[i].cells
-    console.log(gameData)
     const xValue = gameData.filter(value => value === 'X').length
     const yValue = gameData.filter(value => value === 'O').length
     const gameWinner = function () {
       if (xValue > yValue && xValue < 5) {
-        console.log(xValue, yValue, 'X')
         return 'X'
       } else if (xValue === yValue && xValue < 5) {
-        console.log(xValue, yValue, 'O')
         return 'O'
       } else if (xValue === 5) {
         if ((gameData[0] === 'X' && gameData[1] === 'X' && gameData[2] === 'X') ||
@@ -179,12 +172,10 @@ const seeRecordSuccessful = responseData => {
           return 'X'
         } else {
           ties++
-          console.log(xValue, yValue, 'tie')
           return 'Tie'
         }
       }
     }
-    // console.log(gameWinner())
     if (gameWinner() === 'Tie') {
     } else if (playerIs() === gameWinner()) {
       wins++
