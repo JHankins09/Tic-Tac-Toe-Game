@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic-Tac-Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Permanent+Marker|Shadows+Into+Light&display=swap" rel="stylesheet">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <main>
+
+        <section class='title'>
+            <h1>Tic-Tac-Toe</h1>
+        </section>
+      <!-- Login Screen Content -->
+
+        <!-- Sign Up -->
+
+        <section class="sign-in-screen pre-login">
+
+        <div class="sign-up">
+          <form id="sign-up">
+            <h2>Sign-Up</h2>
+            <h3 id="sign-up-message"></h3>
+            <input name="credentials[email]" type="text" placeholder="Email">
+            <input name="credentials[password]" type="password" placeholder="Password">
+            <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+            <button type="submit">Sign up</button>
+            <p> -OR- </p>
+            <button id="sign-up-sign-in-toggle">-Sign in-</button>
+          </form>
+        </div>
+
+          <!-- Sign In -->
+
+        <div class="sign-in inactive">
+
+          <form id="sign-in">
+            <h2>Sign-in</h2>
+            <h3 id="signed-up-message"></h3>
+            <h3 id="sign-in-message"></h3>
+            <input name="credentials[email]" type="text" placeholder="Email">
+            <input name="credentials[password]" type="password" placeholder="Password">
+            <br/>
+            <button type="submit">Sign in</button>
+            <p> -OR- </p>
+            <button id="sign-in-sign-up-toggle">-Sign up-</button>
+          </form>
+        </div>
+
+      </section>
+
+    <!-- End Login screen -->
+
+    <!-- Logged In Screen -->
+
+      <!-- Pre-game Screen Content -->
+
+        <section class="logged-in hide game-menu">
+
+        <h2 class="hide" id="global-messages"></h2>
+
+        <div class="logged-in game-inactive hide">
+
+          <form id="start-game" class="initial-menu main">
+            <button type="submit">New Game</button>
+          </form>
+
+          <form id="new-game" class="continue-menu hide main">
+            <button type="submit">New Game</button>
+          </form>
+
+          <form id="see-record" class="main">
+            <button type="submit">See my record</button>
+          </form>
+
+          <form id="sign-out" class="main">
+            <button type="submit">Sign Out</button>
+          </form>
+
+          <button id="user-settings" class="main">User settings</button>
+
+          <aside id="user-settings-menu" class="sub hide">
+            <h2 class="description">Manage your user settings here</h2>
+            <form id="change-pw">
+              <h2>Change password</h2>
+              <input name="passwords[old]" type="password" placeholder="old password">
+              <input name="passwords[new]" type="password" placeholder="new password">
+              <button type="submit">Update</button>
+            </form>
+            <button id="back-to-main">Back</button>
+
+
+          </aside>
+
+        </div>
+
+        <!-- <div class="logged-in game-inactive hide">
+        <h2>API Start-Game Feature</h2>
+        <form id="get-games">
+        <h3 id="get-games-message"></h3>
+        <button type="submit">Get Games</button>
+        </form>
+        </div>
+        -->
+
+      <!-- Active Game Content -->
+
+        <div class="game-active hide">
+          <h3 id="game-board-alert" class="hide">This game is over &mdash; Please select an option above!</h3>
+            <form class="game-board">
+              <div class="row">
+                <div id="box11" data-cell-index='0' class="game-space left top"></div>
+                <div id="box12" data-cell-index='1' class="game-space middle top"></div>
+                <div id="box13" data-cell-index='2' class="game-space right top"></div>
+              </div>
+              <div class="row">
+                <div id="box21" data-cell-index='3' class="game-space left mid"></div>
+                <div id="box22" data-cell-index='4' class="game-space middle mid"></div>
+                <div id="box23" data-cell-index='5' class="game-space right mid"></div>
+              </div>
+              <div class="row">
+                <div id="box31" data-cell-index='6' class="game-space left bot"></div>
+                <div id="box32" data-cell-index='7' class="game-space middle bot"></div>
+                <div id="box33" data-cell-index='8' class="game-space right bot"></div>
+              </div>
+            </form>
+          <p id="game-id"></p>
+        </div>
+
+      </section>
+
+      </main>
+    </body>
+</html>
