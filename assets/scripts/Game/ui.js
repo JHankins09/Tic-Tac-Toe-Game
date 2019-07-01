@@ -49,8 +49,8 @@ const isGameOver = () => {
     $('#game-board-alerts').show()
     $('#player-tracker').hide()
     $('#global-messages').text('This game is a draw!')
-    $('.game-inactive').show()
-    $('#player-tracker').hide()
+    $('.game-inactive').removeClass('hide')
+    $('#player-tracker').addClass('hide')
     store.gameStatus = 'over'
     store.current.over = true
     return true
