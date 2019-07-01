@@ -10,16 +10,18 @@ const store = require('./../store.js')
 
 // action to execute when a game space is selected
 const onPlaceToken = event => {
-  if (ui.isGameOver() === true) {
-  } else {
+  // if (ui.isGameOver() === true) {
+  // } else {
     if ((event.target).innerHTML) {
       ui.checkAvailableSpace()
     } else if (store.gameStatus !== 'over') {
       ui.placeToken()
       api.updateGame()
+    } else {
+      ui.gameOverClick()
     }
   }
-}
+// }
 
 // action to execute when 'start game' is selected
 const onCreateGame = event => {

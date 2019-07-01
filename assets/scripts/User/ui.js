@@ -8,6 +8,7 @@ const messageReset = function () {
   $('#sign-in-message').delay(2000).fadeOut(200)
   $('#change-pw-message').delay(2000).fadeOut(200)
   $('#sign-out-message').delay(2000).fadeOut(200)
+  $('#signed-up-message').delay(4000).fadeOut(400)
 }
 
 const loginSignupToggle = function () {
@@ -26,6 +27,7 @@ const signUpSuccessful = responseData => {
   $('#sign-up-message').removeClass('failure')
   $('#sign-up-message').addClass('success')
   loginSignupToggle()
+  messageReset()
 }
 
 const signUpFailure = responseData => {
@@ -42,6 +44,7 @@ const signInSuccessful = responseData => {
   store.user = responseData.user
   $('.logged-in').removeClass('hide')
   $('.sign-in-screen').addClass('hide')
+  $('.game-active').addClass('hide')
   messageReset()
 }
 

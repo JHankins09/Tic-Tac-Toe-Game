@@ -7,6 +7,7 @@ const messageReset = function () {
   $('form').trigger('reset')
   $('#start-game-message').delay(2000).fadeOut(200)
   $('#see-record-message').delay(2000).fadeOut(200)
+  $('#game-board-alert').delay(2000).fadeOut(200)
 }
 
 store.moveCounter = []
@@ -16,6 +17,11 @@ const checkAvailableSpace = responseData => {
     $('#game-board-alerts').show()
     $('#global-messages').text(`This space is already taken!`)
     $('#game-board-alerts').delay(2000).fadeOut(200)
+  } else {
+    $('#game-board-alert').show()
+    $('#game-board-alert').removeClass('hide')
+    console.log('Click Registered')
+    messageReset()
   }
 }
 
@@ -98,7 +104,6 @@ const createGameSuccessful = responseData => {
   store.turn = 'X'
   $('#global-messages').text(`Player ${store.turn}, you are up! Make move ${store.moveCounter.length + 1}`)
   messageReset()
-  console.log(store.session.game.cells)
   store.moveCounter = []
   $('#game-id').text(`Game #: ${store.session.game.id}`)
 }
@@ -132,7 +137,7 @@ const createGameFailure = responseData => {
 
 // Execute on retrieved games
 const getGamesSuccessful = responseData => {
-  console.log(responseData)
+//   console.log(responseData)
 }
 
 const seeRecordSuccessful = responseData => {
@@ -151,7 +156,7 @@ const seeRecordSuccessful = responseData => {
         return 'Y'
       }
     }
-    console.log('Player is ' + playerIs())
+    // console.log('Player is ' + playerIs())
     const gameData = responseData.games[i].cells
     const xValue = gameData.filter(value => value === 'X').length
     const yValue = gameData.filter(value => value === 'Y').length
@@ -165,7 +170,7 @@ const seeRecordSuccessful = responseData => {
         return 'Tie'
       }
     }
-    console.log(gameWinner())
+    // console.log(gameWinner())
     if (playerIs() === gameWinner()) {
       wins++
     } else if (playerIs() === gameWinner()) {
@@ -178,6 +183,12 @@ const seeRecordSuccessful = responseData => {
   messageReset()
 }
 
+const gameOverClick = () => {
+  $('#game-board-alert').show()
+  $('#game-board-alert').removeClass('hide')
+  messageReset()
+}
+
 module.exports = {
   createGameSuccessful,
   createGameFailure,
@@ -186,5 +197,6 @@ module.exports = {
   isGameOver,
   getGamesSuccessful,
   seeRecordSuccessful,
-  createNewGame
+  createNewGame,
+  gameOverClick
 }

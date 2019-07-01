@@ -71,7 +71,7 @@
         <div class="logged-in game-inactive hide">
 
           <form id="start-game" class="initial-menu main">
-            <button type="submit">Play Game</button>
+            <button type="submit">New Game</button>
           </form>
 
           <form id="new-game" class="continue-menu hide main">
@@ -115,23 +115,24 @@
       <!-- Active Game Content -->
 
         <div class="game-active hide">
-          <form class="game-board">
-            <div class="row">
-              <div id="box11" data-cell-index='0' class="game-space left top"></div>
-              <div id="box12" data-cell-index='1' class="game-space middle top"></div>
-              <div id="box13" data-cell-index='2' class="game-space right top"></div>
-            </div>
-            <div class="row">
-              <div id="box21" data-cell-index='3' class="game-space left mid"></div>
-              <div id="box22" data-cell-index='4' class="game-space middle mid"></div>
-              <div id="box23" data-cell-index='5' class="game-space right mid"></div>
-            </div>
-            <div class="row">
-              <div id="box31" data-cell-index='6' class="game-space left bot"></div>
-              <div id="box32" data-cell-index='7' class="game-space middle bot"></div>
-              <div id="box33" data-cell-index='8' class="game-space right bot"></div>
-            </div>
-          </form>
+          <h3 id="game-board-alert" class="hide">This game is over &mdash; Please select an option above!</h3>
+            <form class="game-board">
+              <div class="row">
+                <div id="box11" data-cell-index='0' class="game-space left top"></div>
+                <div id="box12" data-cell-index='1' class="game-space middle top"></div>
+                <div id="box13" data-cell-index='2' class="game-space right top"></div>
+              </div>
+              <div class="row">
+                <div id="box21" data-cell-index='3' class="game-space left mid"></div>
+                <div id="box22" data-cell-index='4' class="game-space middle mid"></div>
+                <div id="box23" data-cell-index='5' class="game-space right mid"></div>
+              </div>
+              <div class="row">
+                <div id="box31" data-cell-index='6' class="game-space left bot"></div>
+                <div id="box32" data-cell-index='7' class="game-space middle bot"></div>
+                <div id="box33" data-cell-index='8' class="game-space right bot"></div>
+              </div>
+            </form>
           <p id="game-id"></p>
         </div>
 

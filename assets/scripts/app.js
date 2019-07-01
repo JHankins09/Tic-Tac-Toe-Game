@@ -21,6 +21,7 @@ $(() => {
   $('#get-games').on('submit', gameEvents.onGetGames)
   $('#see-record').on('submit', gameEvents.onSeeRecord)
   $('#new-game').on('submit', gameEvents.onNewGame)
+
   // Active game listeners
   $('.game-space').on('click', gameEvents.onPlaceToken)
 
