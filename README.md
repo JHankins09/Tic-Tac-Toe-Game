@@ -4,22 +4,6 @@
 
 ### Planning
 
-#### This project is built in 3 primary parts:
-  1. Development of GameEngine
-    * Initial development of game logic leveraging JS
-    * Refactored and segmented game logic for easier porting
-  2. Integration into API
-    * Develop UI integration for web-based use of game
-    * Enhance functionality to allow for progressive use via sign-in
-  3. Styling and re-facing of UI
-    * Optomize web useability
-    * Impliment mobile UI
-  4. Include additional bonus feature
-    * Online competitive play
-    * Difficulty setting (easy, medium, hard, challeng)
-
-### Development Process
-
 #### Initial User Stories
 * As a player, I want to see my play history so I can see how my performance stacks up game over game.
 
@@ -42,9 +26,32 @@
 
 https://app.moqups.com/4UD0R7wRns/view/page/ad64222d5
 
-## Unresolved issues / features for future release
+#### This project was planned to be built in 3 primary parts:
+  1. Integration into API
+  * Develop UI integration for web-based use of game
+  * Enhance functionality to allow for progressive use via sign-in
+  2. Development of GameEngine
+    * Initial development of game logic leveraging JS
+    * Restructure and segment game logic for easier future feature implimentation
+  3. Styling and re-facing of UI
+    * Optomize web useability
+    * Impliment mobile UI
+  4. Include additional bonus feature
+    * Online competitive play
+    * Difficulty setting (easy, medium, hard, challeng)
 
-### Stretch features
+### Development Process
+
+While a large poriton of application development was executed acording to the above, there are some significant changes
+that would be recommended for future development/re-build.
+
+  1. Development and execution of a game wireframe is highly encouraged.
+    * By prioritizing the build of API integraiton, much of the functionality was either omitted, removed, or altered to accomidate for the actual game UI.
+  1. JS Build Control.
+    * Many functions in the GameEngine were built seperately, but at the point of implimentation were easier to apply as a singular function. This applies to many of the catch applications, such as 'Space already used' or 'Game over' alert notifications. This was built as a seperate listener based on current game surcumstance, however would have been better applied as an if/else to the origional functionality - namely as an if/then to game piece placement.
+
+
+## Unresolved issues / features for future release
 
 - AI bot
   * easy
@@ -73,30 +80,49 @@ https://app.moqups.com/4UD0R7wRns/view/page/ad64222d5
 
 - SEO enabled
 
-## Prerequisites
-
-## Installing
-
-## Running the tests
-
-## Deployment
-
 ## Built With (technologies used)
-### This game was built using:
+
+### The technologies include in the build of this game are:
 - JavaScript
 - JSON
 - AJAX
 - CSS
 - HTML
 
-## Contributing
-
 ## Versioning
+
+### Scripts
+
+#### Game
+  This houses all AJAX and JS functionality that impacts actual game-play.
+
+#### User
+  This houses all AJAX and JS functionality that impacts user account creation, login, or changes.
+
+### Branching
+
+  #### API
+    Used while implimenting any changes to API calls or event listeners directly related to user account creation or manipulation. This included:
+      * Create account
+      * Log-in
+      * Log-out
+      * Create Game
+      * Retrieve game's played
+      * Change Password
+
+  #### GameEngine
+    Used while applying game logic and UI functionality as reponse to event listeners/handlers firing. This includes all DOM changes rendered on screen such as:
+
+      * Game token placement
+      * All alert/messaging changes
+      * screen changes
+      * etc.
 
 ## Author
 ### James B. Hankins
 
-
-## License
+LinkedIn:   https://www.linkedin.com/in/james-hankins/
+GitHub:     https://github.com/JHankins09
 
 ## Acknowledgments
+This project is built as the result of participating in General Assembly Boston's Software Engineering Immersive course.
