@@ -59,11 +59,13 @@ const signInFailure = responseData => {
 const changePasswordSuccess = responseData => {
   $('#global-messages').show()
   $('#global-messages').text(`Nice work - You've updated your password.`)
+  $('form').trigger('reset')
 }
 
 const changePasswordFailure = responseData => {
   $('#global-messages').show()
   $('#global-messages').text(`Uh oh, that didn't seem to work!`)
+  $('form').trigger('reset')
 }
 
 const signOutSuccess = responseData => {
