@@ -1,6 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
 
-
 .hideForGood {
   display: none;
 }
@@ -9,9 +8,7 @@ body {
   background: #42615a;
   height: 100vh;
 }
-
 // Title / Global Alerts Content
-
 .title {
   padding: 15px 70px;
   margin: auto;
@@ -23,30 +20,22 @@ body {
     font-size: 70px;
   }
 }
-
 // Toggle active inactive display
-
 .inactive {
   display: none;
 }
-
 // Pre-login Screen
-
 .pre-login {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
-
 // sign-in screen forms
-
 .sign-in-screen {
-
   #signed-up-message {
     width: 80%;
     border: #3b7b6c 3px solid;
-    color:#d66251;
+    color: #d66251;
     font-family: 'Shadows Into Light', cursive;
     font-size: 35px;
     font-weight: 200;
@@ -64,12 +53,12 @@ body {
     flex-direction: column;
     background: #3b7b6c;
     border-radius: 20px;
-    width: 30vw;
+    width: 100% ;
     text-align: center;
     margin-bottom: 105px;
 
     h2 {
-      color:#51d696;
+      color: #51d696;
       font-family: 'Shadows Into Light', cursive;
       font-size: 2.5em;
       font-weight: bold;
@@ -77,19 +66,20 @@ body {
       background: #42615a;
       border-radius: 20px;
     }
+
     h3 {
-      background:#d65173;
+      background: #d65173;
       border-radius: 20px;
       font-family: 'Shadows Into Light', cursive;
       font-size: 2.5em;
     }
 
     p {
-      color:#51d696;
+      color: #51d696;
       font-family: 'Shadows Into Light', cursive;
       font-size: 1.5em;
       font-weight: bold;
-      padding: 15px 0 5px 0;
+      padding: 15px 0 5px;
     }
 
     input {
@@ -98,7 +88,7 @@ body {
       margin: 5px 0;
       border-radius: 20px;
       background: #42615a;
-      border:#51d696;
+      border: #51d696;
       color: #d66251;
       font-family: 'Permanent Marker', cursive;
     }
@@ -116,9 +106,7 @@ body {
     }
   }
 }
-
 // Logged in Screen
-
 .logged-in {
   display: flex;
   flex-direction: column;
@@ -129,15 +117,16 @@ body {
   border-radius: 20px;
   padding-bottom: 5%;
 
-  h2 { // Global Alerts
+  h2 {
+    // Global Alerts
     width: 30vw;
     border: #3b7b6c 3px solid;
-    color:#d66251;
+    color: #d66251;
     font-family: 'Shadows Into Light', cursive;
     font-size: 35px;
     font-weight: 200;
     text-align: center;
-    margin: 10% 5px 10%;
+    margin: 10% 5px;
     border-radius: 15px;
     background: #42615a;
     border-radius: 15px;
@@ -150,18 +139,17 @@ body {
     border-radius: 20px;
     background: #d66251;
     color: #42615a;
-    border:#51d696;
+    border: #51d696;
     font-family: 'Permanent Marker', cursive;
     font-size: 1em;
     width: 15vw;
-
   }
+
   button:hover {
     background: #42615a;
     color: #d66251;
     border: #d66251 2px solid;
   }
-
 }
 
 .user-settings-active {
@@ -174,12 +162,12 @@ body {
     flex-direction: column;
     background: #3b7b6c;
     border-radius: 20px;
-    width: 30vw;
+    width: 80vw;
     text-align: center;
     margin-bottom: 105px;
 
     h2 {
-      color:#51d696;
+      color: #51d696;
       font-family: 'Shadows Into Light', cursive;
       font-size: 2.5em;
       font-weight: bold;
@@ -187,19 +175,20 @@ body {
       background: #42615a;
       border-radius: 20px;
     }
+
     h3 {
-      background:#d65173;
+      background: #d65173;
       border-radius: 20px;
       font-family: 'Shadows Into Light', cursive;
       font-size: 2.5em;
     }
 
     p {
-      color:#51d696;
+      color: #51d696;
       font-family: 'Shadows Into Light', cursive;
       font-size: 1.5em;
       font-weight: bold;
-      padding: 15px 0 5px 0;
+      padding: 15px 0 5px;
     }
 
     input {
@@ -208,7 +197,7 @@ body {
       margin: 5px 0;
       border-radius: 20px;
       background: #42615a;
-      border:#51d696;
+      border: #51d696;
       color: #d66251;
       font-family: 'Permanent Marker', cursive;
     }
@@ -224,6 +213,7 @@ body {
     input:checked {
       background: #51d696;
     }
+
     button {
       width: 100%;
     }
@@ -235,12 +225,8 @@ body {
   margin: auto;
   text-align: center;
   width: 40vw;
-
-
 }
-
 // Global css
-
 button {
   background: #d66251;
   color: #42615a;
@@ -253,8 +239,6 @@ button {
   font-weight: bold;
   font-size: 1.5em;
 }
-
-
 
 .hide {
   display: none;
@@ -273,18 +257,19 @@ button {
     }
 
     .right {
-      border-left:  3px #42615a solid;
+      border-left: 3px #42615a solid;
     }
 
     .left {
-      border-right:  3px #42615a solid;
+      border-right: 3px #42615a solid;
     }
 
     .bot {
       display: inline-block;
-      border-top:  3px #42615a solid;
+      border-top: 3px #42615a solid;
     }
   }
+
   .game-space {
     display: inline-block;
     height: 15vh;
@@ -295,11 +280,11 @@ button {
   }
 
   p {
-    color:#d66251;
+    color: #d66251;
     font-family: 'Shadows Into Light', cursive;
     font-size: 1.5em;
     font-weight: bold;
-    padding: 5px 0 5px 0;
+    padding: 5px 0;
   }
 }
 
@@ -340,11 +325,11 @@ button {
     }
 
     p {
-      color:#51d696;
+      color: #51d696;
       font-family: 'Shadows Into Light', cursive;
       font-size: 1.5em;
       font-weight: bold;
-      padding: 15px 0 5px 0;
+      padding: 15px 0 5px;
     }
 
     input {
@@ -384,17 +369,16 @@ button {
     }
   }
 }
+
 #game-board-alert {
-
-    color:#3b7b6c;
-    font-family: 'Shadows Into Light', cursive;
-    font-size: 2.5em;
-    font-weight: bold;
-    margin-bottom: 35px;
-    background: #42615a;
-    border-radius: 20px;
-    width: 80%;
-    margin-left: 10%;
-  }
-
+  color: #3b7b6c;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 35px;
+  background: #42615a;
+  border-radius: 20px;
+  width: 80%;
+  margin-left: 10%;
+}
 // @media

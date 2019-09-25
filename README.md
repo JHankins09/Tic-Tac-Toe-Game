@@ -24,7 +24,8 @@
 
 #### Initial Wire framing
 
-https://app.moqups.com/4UD0R7wRns/view/page/ad64222d5
+https://media.git.generalassemb.ly/user/21061/files/ed086180-ac63-11e9-94f9-25ff0e8720ab
+
 
 #### This project was planned to be built in 3 primary parts:
   1. Integration into API

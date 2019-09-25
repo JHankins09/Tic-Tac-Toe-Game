@@ -39,7 +39,7 @@ const signUpFailure = responseData => {
 }
 
 const signInSuccessful = responseData => {
-  $('#global-messages').show()
+  $('#global-messages').show('')
   $('#global-messages').text(`Welcome ${responseData.user.email}, ready to play some Tic-Tac-Toe?`)
   store.user = responseData.user
   $('.logged-in').removeClass('hide')
@@ -85,6 +85,9 @@ const signOutFailure = resposeData => {
 
 const userSettingsShow = () => {
   $('.sub').removeClass('hide')
+  $('#global-messages').show()
+  $('#global-messages'
+  )
   $('.main').addClass('hide')
   $('.game-active').addClass('hide')
 }
