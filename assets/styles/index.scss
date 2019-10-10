@@ -1,29 +1,140 @@
 @import '~bootstrap/scss/bootstrap';
 
-.hideForGood {
-  display: none;
-}
+// Color Pallete
+
+  // Background Colors:
+  $bg-primary: #42615a;
+  $bg-secondary: #3b7b6c;
+  $black: #000000;
+  $transparent: rgba(0, 0, 0, 0);
+
+  // Font Colors:
+  $orange-primary: #d66251;
+  $green-light: #51d696;
+  $green-dark: #6ebd97;
+
+  // Neon color Pallete
+  $neon-font: #ffd8d8;
+  $neon-mid: #f25757;
+  $neon-far: #e50b0b;
+
+// Font Details
+  $fontSize: 14px;
 
 body {
-  background: #42615a;
+  // animation-name: fadeIn;
+  // animation-duration: 15s;
+  // animation-fill-mode: forwards;
+  background-image: url('assets/images/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   height: 100vh;
-}
-// Title / Global Alerts Content
-.title {
-  padding: 15px 70px;
-  margin: auto;
-  text-align: center;
-
-  h1 {
-    color: #d66251;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 70px;
+  width: 100vw;
+  padding-top: 5%;
+  main {
+    width: 100%;
+    .title {
+      padding-bottom: $fontSize;
+    }
+    .content-pallete {
+      bottom: 10%;
+      border-radius: 10%;
+      top: 10%;
+    }
+    h1 {
+      color: $orange-primary;
+      font-family: 'Fascinate Inline', cursive;
+      font-size: $fontSize * 5;
+      line-height: $fontSize * 6;
+      text-align: center;
+      }
+    h3 {
+      font-family: 'Shodows into light';
+      font-size: $fontSize * 2.5;
+      line-height: $fontSize * 3;
+      text-align: center;
+    }
+    a {
+      // font-family: 'shadows into light';
+      color: $neon-font;
+      text-align: right;
+      font-size: $fontSize;
+      line-height: $fontSize * 1.25;
+      font-weight: lighter;
+    }
+    .sign-in-toggle {
+      text-align: right;
+      display: block;
+      margin-top: $fontSize;
+      margin-right: $fontSize;
+      margin-bottom: $fontSize;
+    }
+    a:hover {
+      color: $neon-font;
+      font-weight: bold;
+    }
+    form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      button {
+        background: $transparent;
+        color: $neon-font;
+        border: 1px $transparent;
+        margin: 5%;
+        padding: 5px;
+        font-weight: lighter;
+        font-size: $fontSize * 1.25;
+      }
+      button:hover {
+        font-weight: bold;
+      }
+      input {
+        border-radius: 15px;
+        background: $black;
+        color: $orange-primary;
+        margin: $fontSize;
+        height: $fontSize * 3;
+        font-size: $fontSize;
+        font-family: 'Permanent Marker';
+        width: auto;
+        text-align: center;
+      }
+      input::placeholder {
+          color: white;
+        }
+      }
+    }
+  .footer-signature {
+    margin-top: $fontSize * 3;
+    bottom: 0;
+    height: $fontSize * 5;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    }
+  a {
+    // font-family: 'shadows into light';
+    color: $neon-font;
+    text-align: right;
+    font-size: $fontSize;
+    line-height: $fontSize * 1.25;
+    font-weight: lighter;
   }
-}
+  a:hover {
+    color: $neon-font;
+    font-weight: bold;
+  }
+
+  }
+
 // Toggle active inactive display
 .inactive {
   display: none;
 }
+
 // Pre-login Screen
 .pre-login {
   display: flex;
@@ -31,87 +142,87 @@ body {
   align-items: center;
 }
 // sign-in screen forms
-.sign-in-screen {
-  #signed-up-message {
-    width: 80%;
-    border: #3b7b6c 3px solid;
-    color: #d66251;
-    font-family: 'Shadows Into Light', cursive;
-    font-size: 35px;
-    font-weight: 200;
-    text-align: center;
-    margin: auto;
-    border-radius: 15px;
-    background: #42615a;
-    border-radius: 15px;
-  }
-
-  form {
-    display: inline;
-    display: flex;
-    padding: 15%;
-    flex-direction: column;
-    background: #3b7b6c;
-    border-radius: 20px;
-    width: 100% ;
-    text-align: center;
-    margin-bottom: 105px;
-
-    h2 {
-      color: #51d696;
-      font-family: 'Shadows Into Light', cursive;
-      font-size: 2.5em;
-      font-weight: bold;
-      margin-bottom: 35px;
-      background: #42615a;
-      border-radius: 20px;
-    }
-
-    h3 {
-      background: #d65173;
-      border-radius: 20px;
-      font-family: 'Shadows Into Light', cursive;
-      font-size: 2.5em;
-    }
-
-    p {
-      color: #51d696;
-      font-family: 'Shadows Into Light', cursive;
-      font-size: 1.5em;
-      font-weight: bold;
-      padding: 15px 0 5px;
-    }
-
-    input {
-      text-align: center;
-      padding: 0 15px;
-      margin: 5px 0;
-      border-radius: 20px;
-      background: #42615a;
-      border: #51d696;
-      color: #d66251;
-      font-family: 'Permanent Marker', cursive;
-    }
-
-    input:hover {
-      background: #6ebd97;
-    }
-
-    input:focus {
-      background: #51d696;
-    }
-
-    input:checked {
-      background: #51d696;
-    }
-  }
-}
+// .sign-in-screen {
+//   #signed-up-message {
+//     width: 80%;
+//     border: $bg-secondary 3px solid;
+//     color: $orange-primary;
+//     font-family: 'Shadows Into Light', cursive;
+//     font-size: $fontSize;
+//     font-weight: 200;
+//     text-align: center;
+//     margin: auto;
+//     border-radius: 15px;
+//     background: $bg-primary;
+//     border-radius: 15px;
+//   }
+//
+//   form {
+//     display: inline;
+//     display: flex;
+//     padding: 15%;
+//     flex-direction: column;
+//     background: $bg-secondary;
+//     border-radius: 20px;
+//     width: 100% ;
+//     text-align: center;
+//     margin-bottom: 105px;
+//
+//     h2 {
+//       color: $green-light;
+//       font-family: 'Shadows Into Light', cursive;
+//       font-size: $fontSize;
+//       font-weight: bold;
+//       margin-bottom: 35px;
+//       background: $bg-primary;
+//       border-radius: 20px;
+//     }
+//
+//     h3 {
+//       background: #d65173;
+//       border-radius: 20px;
+//       font-family: 'Shadows Into Light', cursive;
+//       font-size: $fontSize;
+//     }
+//
+//     p {
+//       color: $green-light;
+//       font-family: 'Shadows Into Light', cursive;
+//       font-size: $fontSize;
+//       font-weight: bold;
+//       padding: 15px 0 5px;
+//     }
+//
+//     input {
+//       text-align: center;
+//       padding: 0 15px;
+//       margin: 5px 0;
+//       border-radius: 20px;
+//       background: $bg-primary;
+//       border: $green-light;
+//       color: $orange-primary;
+//       font-family: 'Permanent Marker', cursive;
+//     }
+//
+//     input:hover {
+//       background: $green-dark;
+//     }
+//
+//     input:focus {
+//       background: $green-light;
+//     }
+//
+//     input:checked {
+//       background: $green-light;
+//     }
+//   }
+// }
 // Logged in Screen
 .logged-in {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #3b7b6c;
+  background: $bg-secondary;
   margin: auto;
   width: 40vw;
   border-radius: 20px;
@@ -120,15 +231,15 @@ body {
   h2 {
     // Global Alerts
     width: 30vw;
-    border: #3b7b6c 3px solid;
-    color: #d66251;
+    border: $bg-secondary 3px solid;
+    color: $orange-primary;
     font-family: 'Shadows Into Light', cursive;
-    font-size: 35px;
+    font-size: $fontSize;
     font-weight: 200;
     text-align: center;
     margin: 10% 5px;
     border-radius: 15px;
-    background: #42615a;
+    background: $bg-primary;
     border-radius: 15px;
   }
 
@@ -137,18 +248,18 @@ body {
     padding: 10px 15px;
     margin: 5px 0;
     border-radius: 20px;
-    background: #d66251;
-    color: #42615a;
-    border: #51d696;
+    background: $orange-primary;
+    color: $bg-primary;
+    border: $green-light;
     font-family: 'Permanent Marker', cursive;
-    font-size: 1em;
+    font-size: $fontSize;
     width: 15vw;
   }
 
   button:hover {
-    background: #42615a;
-    color: #d66251;
-    border: #d66251 2px solid;
+    background: $bg-primary;
+    color: $orange-primary;
+    border: $orange-primary 2px solid;
   }
 }
 
@@ -160,19 +271,19 @@ body {
     display: flex;
     padding: 15%;
     flex-direction: column;
-    background: #3b7b6c;
+    background: $bg-secondary;
     border-radius: 20px;
     width: 80vw;
     text-align: center;
     margin-bottom: 105px;
 
     h2 {
-      color: #51d696;
+      color: $green-light;
       font-family: 'Shadows Into Light', cursive;
-      font-size: 2.5em;
+      font-size: $fontSize;
       font-weight: bold;
       margin-bottom: 35px;
-      background: #42615a;
+      background: $bg-primary;
       border-radius: 20px;
     }
 
@@ -180,13 +291,13 @@ body {
       background: #d65173;
       border-radius: 20px;
       font-family: 'Shadows Into Light', cursive;
-      font-size: 2.5em;
+      font-size: $fontSize;
     }
 
     p {
-      color: #51d696;
+      color: $green-light;
       font-family: 'Shadows Into Light', cursive;
-      font-size: 1.5em;
+      font-size: $fontSize;
       font-weight: bold;
       padding: 15px 0 5px;
     }
@@ -196,22 +307,22 @@ body {
       padding: 0 15px;
       margin: 5px 0;
       border-radius: 20px;
-      background: #42615a;
-      border: #51d696;
-      color: #d66251;
+      background: $bg-primary;
+      border: $green-light;
+      color: $orange-primary;
       font-family: 'Permanent Marker', cursive;
     }
 
     input:hover {
-      background: #6ebd97;
+      background: $green-dark;
     }
 
     input:focus {
-      background: #51d696;
+      background: $green-light;
     }
 
     input:checked {
-      background: #51d696;
+      background: $green-light;
     }
 
     button {
@@ -227,18 +338,7 @@ body {
   width: 40vw;
 }
 // Global css
-button {
-  background: #d66251;
-  color: #42615a;
-  border: none;
-  border-radius: 20px;
-  margin: 5%;
-  padding: 5px;
-  font-style: italic;
-  font-family: 'Shadows Into Light', cursive;
-  font-weight: bold;
-  font-size: 1.5em;
-}
+
 
 .hide {
   display: none;
@@ -253,20 +353,20 @@ button {
     margin: 0 auto;
 
     .top {
-      border-bottom: 3px #42615a solid;
+      border-bottom: 3px $bg-primary solid;
     }
 
     .right {
-      border-left: 3px #42615a solid;
+      border-left: 3px $bg-primary solid;
     }
 
     .left {
-      border-right: 3px #42615a solid;
+      border-right: 3px $bg-primary solid;
     }
 
     .bot {
       display: inline-block;
-      border-top: 3px #42615a solid;
+      border-top: 3px $bg-primary solid;
     }
   }
 
@@ -274,15 +374,15 @@ button {
     display: inline-block;
     height: 15vh;
     width: 15vh;
-    color: #d66251;
+    color: $orange-primary;
     font-family: 'Permanent Marker', cursive;
-    font-size: 10vh;
+    font-size: $fontSize;
   }
 
   p {
-    color: #d66251;
+    color: $orange-primary;
     font-family: 'Shadows Into Light', cursive;
-    font-size: 1.5em;
+    font-size: $fontSize;
     font-weight: bold;
     padding: 5px 0;
   }
@@ -290,7 +390,7 @@ button {
 
 .sub {
   text-align: center;
-  background: #42615a;
+  background: $bg-primary;
   border-radius: 20px;
   padding-bottom: 5%;
 
@@ -308,26 +408,26 @@ button {
       background: #d65173;
       border-radius: 20px;
       font-family: 'Shadows Into Light', cursive;
-      font-size: 2.5em;
+      font-size: $fontSize;
     }
 
     .description {
       width: 100%;
-      background: #3b7b6c;
+      background: $bg-secondary;
       margin: 0 auto 30px;
       font-weight: bold;
     }
 
     h2 {
       width: 100%;
-      background: #3b7b6c;
+      background: $bg-secondary;
       margin: 0 auto 30px;
     }
 
     p {
-      color: #51d696;
+      color: $green-light;
       font-family: 'Shadows Into Light', cursive;
-      font-size: 1.5em;
+      font-size: $fontSize;
       font-weight: bold;
       padding: 15px 0 5px;
     }
@@ -337,27 +437,27 @@ button {
       padding: 0 15px;
       margin: 5px auto;
       border-radius: 20px;
-      background: #3b7b6c;
-      border: #d66251 1px solid;
-      color: #d66251;
+      background: $bg-secondary;
+      border: $orange-primary 1px solid;
+      color: $orange-primary;
       font-family: 'Permanent Marker', cursive;
     }
 
     input:hover {
-      background: #6ebd97;
+      background: $green-dark;
     }
 
     input:focus {
-      background: #51d696;
+      background: $green-light;
     }
 
     input:checked {
-      background: #51d696;
+      background: $green-light;
     }
 
     button {
-      background: #d66251;
-      color: #42615a;
+      background: $orange-primary;
+      color: $bg-primary;
       border: none;
       border-radius: 20px;
       margin: 5% auto;
@@ -365,20 +465,76 @@ button {
       font-style: italic;
       font-family: 'Shadows Into Light', cursive;
       font-weight: bold;
-      font-size: 1.5em;
+      font-size: $fontSize;
     }
   }
 }
 
 #game-board-alert {
-  color: #3b7b6c;
+  color: $bg-secondary;
   font-family: 'Shadows Into Light', cursive;
-  font-size: 2.5em;
+  font-size: $fontSize;
   font-weight: bold;
   margin-bottom: 35px;
-  background: #42615a;
+  background: $bg-primary;
   border-radius: 20px;
   width: 80%;
   margin-left: 10%;
 }
 // @media
+
+// SFX
+
+.neon-light-effect {
+  color: $neon-font;
+  text-shadow:
+  .1vw 0 .25vw $neon-font, .2vw 0 .25vw $neon-font, .4vw 0 .25vw $neon-font,
+
+  .1vw 0 0 $neon-mid, .2vw 0 0 $neon-mid, .4vw 0 0 $neon-mid,
+  .1vw 0 .1vw $neon-mid, .2vw 0 .1vw $neon-mid, .4vw 0 .1vw $neon-mid,
+  .1vw 0 2vw $neon-mid, .2vw 0 2vw $neon-mid, .4vw 0 2vw $neon-mid,
+
+  .1vw 0 1vw $neon-far, .2vw 0 1vw $neon-far, .4vw 0 5vw $neon-far,
+  .1vw 0 5vw $neon-far, .2vw 0 20vw $neon-far, .4vw 0 10vw $neon-far,
+  .1vw 0 10vw $neon-far, .2vw 0 30vw $neon-far, .4vw 0 10vw $neon-far;
+}
+
+.footer-signature {
+  color: $neon-font;
+  text-shadow:
+  .1vw 0 .25vw $neon-font, .2vw 0 .25vw $neon-font, .4vw 0 .25vw $neon-font,
+
+  .1vw 0 0 $neon-mid, .2vw 0 0 $neon-mid, .4vw 0 0 $neon-mid,
+  .1vw 0 .1vw $neon-mid, .2vw 0 .1vw $neon-mid, .4vw 0 .1vw $neon-mid,
+  .1vw 0 2vw $neon-mid, .2vw 0 2vw $neon-mid, .4vw 0 2vw $neon-mid,
+
+  .1vw 0 1vw $neon-far, .2vw 0 1vw $neon-far, .4vw 0 5vw $neon-far,
+  .1vw 0 5vw $neon-far, .2vw 0 20vw $neon-far, .4vw 0 10vw $neon-far,
+  .1vw 0 10vw $neon-far, .2vw 0 30vw $neon-far, .4vw 0 10vw $neon-far;
+}
+
+.neon-outline {
+  box-shadow:
+  0 0 0.1vw 0.4vw $neon-font,
+  0 0 0.4vw 0.6vw $neon-mid,
+  0 0 4vw 0.6vw $neon-far,
+
+  inset 0 0 1.5vw 0.4vw $neon-font,
+  inset 0 0 0.4vw 0.2vw $neon-mid,
+  inset 0 0 0.5vw 0.2vw $neon-far;
+  padding: $fontSize;
+  margin: $fontSize;
+}
+
+// Animations
+
+// @keyframes fadeIn {
+//   0% {
+       // background-image: url('assets/images/bg.jpg');
+//     background-color: $black;
+//   }
+//
+//   100% {
+//     background-color: url('assets/images/bg.jpg');
+//   }
+// }

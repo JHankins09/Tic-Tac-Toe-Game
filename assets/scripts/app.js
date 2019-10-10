@@ -25,8 +25,9 @@ $(() => {
   // Active game listeners
   $('.game-space').on('click', gameEvents.onPlaceToken)
 
-  $('#sign-up-sign-in-toggle').on('click', userEvents.loginSignupToggle)
-  $('#sign-in-sign-up-toggle').on('click', userEvents.signupLoginToggle)
+  $('.sign-in-toggle').on('click', userEvents.loginSignupToggle)
+  // $('#sign-up-sign-in-toggle').on('click', userEvents.loginSignupToggle)
+  // $('#sign-in-sign-up-toggle').on('click', userEvents.signupLoginToggle)
   $('#user-settings').on('click', userEvents.userSettingsShow)
   $('#back-to-main').on('click', userEvents.backToMain)
 })

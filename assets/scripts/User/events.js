@@ -20,6 +20,7 @@ const onSignUp = event => {
 }
 
 const loginSignupToggle = () => {
+  console.log('firing')
   event.preventDefault()
   ui.loginSignupToggle()
 }

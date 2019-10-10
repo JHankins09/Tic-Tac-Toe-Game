@@ -2,6 +2,8 @@
 
 const store = require('./../store.js')
 
+let loginSetting = 'signUp'
+
 const messageReset = function () {
   $('form').trigger('reset')
   $('#sign-up-message').delay(2000).fadeOut(200)
@@ -11,15 +13,32 @@ const messageReset = function () {
   $('#signed-up-message').delay(4000).fadeOut(400)
 }
 
+// refactor to apply toggle to home screen.
+// const loginSignupToggle = function () {
+//   if (loginSetting === 'signUp') {
+//     $('#sign-up-screen').addClass('inactive')
+//     $('#log-in-screen').removeClass('inactive')
+//     console.log('WTF?')
+//     loginSetting = 'logIn'
+//   } else {
+//     $('#log-in-screen').addClass('inactive')
+//     $('#sign-up-screen').removeClass('inactove')
+//     loginSetting = 'signUp'
+//   }
+// }
+
 const loginSignupToggle = function () {
-  $('.sign-up').addClass('inactive')
-  $('.sign-in').removeClass('inactive')
+  if (loginSetting === 'signUp') {
+    $('#sign-up-screen').addClass('inactive')
+    console.log('Gone')
+    loginSetting = 'logIn'
+  } else {
+    $('#sign-up-screen').removeClass('inactive')
+    console.log('Back')
+    loginSetting = 'signUp'
+  }
 }
 
-const signupLoginToggle = function () {
-  $('.sign-up').removeClass('inactive')
-  $('.sign-in').addClass('inactive')
-}
 
 const signUpSuccessful = responseData => {
   $('#signed-up-message').show()
@@ -107,7 +126,6 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   loginSignupToggle,
-  signupLoginToggle,
   userSettingsShow,
   backToMain
 }

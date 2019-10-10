@@ -12,7 +12,7 @@ const messageReset = function () {
 
 store.moveCounter = []
 // Validate the selected space is empty.
-const checkAvailableSpace = responseData => {
+const checkAvailableSpace = () => {
   if (store.gameStatus !== 'over') {
     $('#game-board-alerts').show()
     $('#global-messages').text(`This space is already taken!`)
