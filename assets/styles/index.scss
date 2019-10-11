@@ -22,9 +22,6 @@
   $fontSize: 14px;
 
 body {
-  // animation-name: fadeIn;
-  // animation-duration: 15s;
-  // animation-fill-mode: forwards;
   background-image: url('assets/images/bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -106,6 +103,9 @@ body {
           color: white;
         }
       }
+      #user-messages {
+        text-align: center;
+      }
     }
   .footer-signature {
     margin-top: $fontSize * 3;
@@ -141,82 +141,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
-// sign-in screen forms
-// .sign-in-screen {
-//   #signed-up-message {
-//     width: 80%;
-//     border: $bg-secondary 3px solid;
-//     color: $orange-primary;
-//     font-family: 'Shadows Into Light', cursive;
-//     font-size: $fontSize;
-//     font-weight: 200;
-//     text-align: center;
-//     margin: auto;
-//     border-radius: 15px;
-//     background: $bg-primary;
-//     border-radius: 15px;
-//   }
-//
-//   form {
-//     display: inline;
-//     display: flex;
-//     padding: 15%;
-//     flex-direction: column;
-//     background: $bg-secondary;
-//     border-radius: 20px;
-//     width: 100% ;
-//     text-align: center;
-//     margin-bottom: 105px;
-//
-//     h2 {
-//       color: $green-light;
-//       font-family: 'Shadows Into Light', cursive;
-//       font-size: $fontSize;
-//       font-weight: bold;
-//       margin-bottom: 35px;
-//       background: $bg-primary;
-//       border-radius: 20px;
-//     }
-//
-//     h3 {
-//       background: #d65173;
-//       border-radius: 20px;
-//       font-family: 'Shadows Into Light', cursive;
-//       font-size: $fontSize;
-//     }
-//
-//     p {
-//       color: $green-light;
-//       font-family: 'Shadows Into Light', cursive;
-//       font-size: $fontSize;
-//       font-weight: bold;
-//       padding: 15px 0 5px;
-//     }
-//
-//     input {
-//       text-align: center;
-//       padding: 0 15px;
-//       margin: 5px 0;
-//       border-radius: 20px;
-//       background: $bg-primary;
-//       border: $green-light;
-//       color: $orange-primary;
-//       font-family: 'Permanent Marker', cursive;
-//     }
-//
-//     input:hover {
-//       background: $green-dark;
-//     }
-//
-//     input:focus {
-//       background: $green-light;
-//     }
-//
-//     input:checked {
-//       background: $green-light;
-//     }
-//   }
-// }
+
 // Logged in Screen
 .logged-in {
   display: flex;

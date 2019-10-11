@@ -22,49 +22,43 @@
         <h1 class="title neon-light-effect">Tic-Tac-Toe</h1>
       <div class="content-pallete neon-outline">
 
-      <!-- Sign Up -->
+      <h3 id="user-messages" class="success neon-light-effect"></h3>
 
       <section class="log-in">
-        <a href='#' class="neon-light-effect sign-in-toggle">Log In</a>
+
+        <!-- Sign Up -->
+
         <div id="sign-up-screen">
+          <a href='#' class="neon-light-effect sign-in-toggle">Log In</a>
 
           <form id="sign-up" class="neon-light-effect">
-            <h3 class="neon-light-effect">Sign-Up</h2>
+            <h3>Sign-Up</h3>
             <h3 id="sign-up-message"></h3>
             <input name="credentials[email]" type="text" placeholder="Email">
             <input name="credentials[password]" type="password" placeholder="Password">
             <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
             <button class="neon-light-effect" type="submit">Submit &rarr;</button>
           </form>
+        </div>
 
         <!-- Sign In -->
 
-        <a href='#' class="neon-light-effect sign-in-toggle">Sign Up</a>
         <div id="log-in-screen" class="inactive">
-        </div>
-          <!-- <form id="sign-in">
-            <h2>Sign-in</h2>
-            <h3 id="signed-up-message"></h3>
+          <a href='#' class="neon-light-effect sign-in-toggle">Sign Up</a>
+
+          <form id="sign-in" class="neon-light-effect">
+            <h3>Sign-in</h3>
             <h3 id="sign-in-message"></h3>
             <input name="credentials[email]" type="text" placeholder="Email">
             <input name="credentials[password]" type="password" placeholder="Password">
-            <br />
-            <button type="submit">Sign in</button>
-            <p> -OR- </p>
-            <button id="sign-in-sign-up-toggle">-Sign up-</button>
+            <button class="neon-light-effect" type="submit">Submit &rarr;</button>
           </form>
-        </div> -->
+        </div>
 
 
       </section>
 
-      <!-- End Login screen -->
-
-      <!-- Logged In Screen -->
-
-      <!-- Pre-game Screen Content -->
-
-      <section class="logged-in hide game-menu">
+      <section class="logged-in inactive game-menu">
 
         <h2 class="hide" id="global-messages"></h2>
 
@@ -128,10 +122,13 @@
         </div>
 
       </section>
+
     </div>
   </div>
 </main>
+<aside>
     <p class='footer-signature'>Made with love<br>by <a class="neon-light-effect" href='https://jhankins09.github.io/'>James B. Hankins</a></p>
+</aside>
 </body>
 
 </html>

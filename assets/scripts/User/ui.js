@@ -2,76 +2,64 @@
 
 const store = require('./../store.js')
 
+// Initial Formatting Functions.
 let loginSetting = 'signUp'
 
+// Message functionality
 const messageReset = function () {
+  // Remove any input.
   $('form').trigger('reset')
-  $('#sign-up-message').delay(2000).fadeOut(200)
-  $('#sign-in-message').delay(2000).fadeOut(200)
-  $('#change-pw-message').delay(2000).fadeOut(200)
-  $('#sign-out-message').delay(2000).fadeOut(200)
-  $('#signed-up-message').delay(4000).fadeOut(400)
+  // Remove user message.
+  $('#user-messages').delay(2000).fadeOut(200)
 }
 
-// refactor to apply toggle to home screen.
-// const loginSignupToggle = function () {
-//   if (loginSetting === 'signUp') {
-//     $('#sign-up-screen').addClass('inactive')
-//     $('#log-in-screen').removeClass('inactive')
-//     console.log('WTF?')
-//     loginSetting = 'logIn'
-//   } else {
-//     $('#log-in-screen').addClass('inactive')
-//     $('#sign-up-screen').removeClass('inactove')
-//     loginSetting = 'signUp'
-//   }
-// }
+const failureMessage = function () {
+  // Set up user message formatting.
+  $('#user-messages').removeClass('success').addClass('failure')
+  // Display user message.
+  $('#user-messages').show().text('Invalid: Try Again.')
+  // Reset user message display.
+  messageReset()
+}
 
+// Toggle Functionality
 const loginSignupToggle = function () {
+  // if the current page is 'Sign Up'
   if (loginSetting === 'signUp') {
+    // change active classes for log in and sign up
+    $('#log-in-screen').removeClass('inactive')
     $('#sign-up-screen').addClass('inactive')
-    console.log('Gone')
+    // change current page view
     loginSetting = 'logIn'
+  // if the current page is 'Sign In'
   } else {
+    // change active classes for log in and sign up
     $('#sign-up-screen').removeClass('inactive')
-    console.log('Back')
+    $('#log-in-screen').addClass('inactive')
+    // change current page view
     loginSetting = 'signUp'
   }
 }
 
-
-const signUpSuccessful = responseData => {
-  $('#signed-up-message').show()
-  $('#signed-up-message').text(`Nice - you've signed up successfully! Now please sign in!`)
-  $('#sign-up-message').removeClass('failure')
-  $('#sign-up-message').addClass('success')
-  loginSignupToggle()
-  messageReset()
-}
-
 const signUpFailure = responseData => {
-  $('#sign-up-message').show()
-  $('#sign-up-message').text(`Oops! Something went wrong. Try signing in!`)
-  $('#sign-up-message').removeClass('success')
-  $('#sign-up-message').addClass('failure')
+  // display failure message
+  $('#user-messages').show().addClass('failure')
+    .text(`Invalid: Try Again!`)
+  // initiate message reset function
   messageReset()
 }
 
 const signInSuccessful = responseData => {
-  $('#global-messages').show('')
-  $('#global-messages').text(`Welcome ${responseData.user.email}, ready to play some Tic-Tac-Toe?`)
+  // Save logged in user data to the store
   store.user = responseData.user
-  $('.logged-in').removeClass('hide')
-  $('.sign-in-screen').addClass('hide')
+  // Show user message
+  $('#global-messages').show()
+  // ternary: if this is a new usere, show Welcome message.
+  //          if a returning user, show Welcome Back message.
+  store.signUpInfo.credentials.email === store.user.email ? $('#user-messages').text(`Welcome, ${responseData.user.email}`) : $('#user-messages').text(`Welcome back, ${responseData.user.email}`)
+  $('.logged-in').removeClass('inactive')
+  $('.log-in').addClass('inactive')
   $('.game-active').addClass('hide')
-  messageReset()
-}
-
-const signInFailure = responseData => {
-  $('#sign-in-message').show()
-  $('#sign-in-message').text(`Oops! Something went wrong. Give that another shot!`)
-  $('#sign-in-message').removeClass('success')
-  $('#sign-in-message').addClass('failure')
   messageReset()
 }
 
@@ -117,10 +105,10 @@ const backToMain = () => {
 }
 
 module.exports = {
-  signUpSuccessful,
+  // Message Exports
+  failureMessage,
   signUpFailure,
   signInSuccessful,
-  signInFailure,
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
